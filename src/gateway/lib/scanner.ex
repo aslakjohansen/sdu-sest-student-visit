@@ -10,6 +10,12 @@ defmodule Scanner do
   
   def handle_info(:scan, state) do
     IO.puts("Scanning ...")
+    
+    uarts = Circuits.UART.enumerate()
+    for {k, v} <- uarts do
+      IO.puts("- #{k}")
+    end
+    
     Process.send_after(self(), :scan, @sleeptime)
     {:noreply, state}
   end
