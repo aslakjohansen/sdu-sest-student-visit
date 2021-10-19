@@ -14,6 +14,7 @@ defmodule Scanner do
     uarts = Circuits.UART.enumerate()
     for {k, v} <- uarts do
       IO.puts("- #{k}")
+#      state = Map.put_new_lazy(state, v, GenServer.start(Gateway, v))
     end
     
     Process.send_after(self(), :scan, @sleeptime)
