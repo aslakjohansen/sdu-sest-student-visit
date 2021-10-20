@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>MQTT Producer</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Publicér til broker.hivemq.com:8000</h1>
+    
+    <p>Topic: <input type="text" id="topic" value="dk/sdu/sest/test"/></p>
+    <p>Besked:</p>
+    <textarea id="payload" rows=10 cols="60">{"temperature": 20.0}</textarea>
+    <p><button onclick="clicked()">Send</button></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+<script>
+function clicked() {
+  client_id = "mqtt_producer_"+(new Date()).getTime()
+  topic   = document.getElementById("topic").value
+  payload = document.getElementById("payload").value
+
+  function callback () {
+    msg = new Paho.MQTT.Message(payload);
+    msg.destinationName = topic;
+    client.send(msg);
+  }
+
+  // Create a client instance
+  client = new Paho.MQTT.Client("broker.hivemq.com", 8000, client_id);
+  client.connect({onSuccess:callback}); 
+}
+</script>
+  </body>
+</html>
