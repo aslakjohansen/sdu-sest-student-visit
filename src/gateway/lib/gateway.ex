@@ -4,7 +4,6 @@ defmodule Gateway do
   # behaviour functions
   
   def start_link(topic, device, speed) do
-#    GenServer.start(Gateway, {topic, name, description})
     GenServer.start_link(
       __MODULE__,
       {topic, device, speed},
@@ -37,7 +36,6 @@ defmodule Gateway do
   
   @impl true
   def handle_info({:circuits_uart, _, payload}, state) do
-#    IO.puts("payload '#{payload}'")
     case Jason.decode(payload) do
       {:ok, _} -> Publisher.publish(state[:pub], payload)
       {:error, _} -> nil
