@@ -14,3 +14,10 @@ Then fetch and compile dependencies:
 mix deps.get
 mix compile
 ```
+
+## Startup
+
+Open an iex session using `iex -S mix` and run:
+```elixir
+GatewayApplication.start(nil, nil)
+```

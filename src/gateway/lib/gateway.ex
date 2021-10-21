@@ -31,9 +31,17 @@ defmodule Gateway do
   end
   
   @impl true
+  def handle_info({:circuits_uart, _, {:error, _}}, state) do
+    {:noreply, state}
+  end
+  
+  @impl true
   def handle_info({:circuits_uart, _, payload}, state) do
 #    IO.puts("payload '#{payload}'")
-    Publisher.publish(state[:pub], payload)
+    case Jason.decode(payload) do
+      {:ok, _} -> Publisher.publish(state[:pub], payload)
+      {:error, _} -> nil
+    end
     {:noreply, state}
   end
 end
