@@ -23,16 +23,20 @@ defmodule Gateway do
   
   @impl true
   def init({topic, device, speed}) do
-      {:ok, uart_pid} = Circuits.UART.start_link()
-      :ok = Circuits.UART.open(uart_pid, device, speed: speed, active: true)
-      {:ok, pub_pid} = Publisher.start_link(topic: topic)
-      {:ok, %{speed: speed, uart: uart_pid, pub: pub_pid}}
+      state = %{speed: speed, device: device, topic: topic}
+      try do
+        {:ok, uart_pid} = Circuits.UART.start_link()
+        :ok = Circuits.UART.open(uart_pid, device, speed: speed, active: true)
+        {:ok, pub_pid} = Publisher.start_link(topic: topic)
+        {:ok, Map.merge(state, %{uart: uart_pid, pub: pub_pid})}
+      rescue
+        _ -> disconnect(state)
+      end
   end
   
   @impl true
   def handle_info({:circuits_uart, _, {:error, :eio}}, state) do
-    IO.puts("Exiting gateway")
-    {:stop, :error, state}
+    disconnect(state)
   end
   
   @impl true
@@ -42,5 +46,13 @@ defmodule Gateway do
       {:error, _} -> nil
     end
     {:noreply, state}
+  end
+  
+  # callback helpers
+  
+  defp disconnect(state) do
+    IO.puts("Exiting gateway")
+    Registry.unregister(GatewayRegistry, state[:device])
+    {:stop, :error, state}
   end
 end
