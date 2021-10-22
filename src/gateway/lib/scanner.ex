@@ -46,8 +46,11 @@ defmodule Scanner do
       end
       if match do
         topic = "dk/sdu/sest/test"
-        {:ok, pid} = Gateway.start_link(topic, device, speed)
-        Map.put(state, device, pid) #TODO: this pid cannot be trusted, and is not used
+        case Gateway.start_link(topic, device, speed) do
+          {:ok, pid} ->
+            Map.put(state, device, pid) #TODO: this pid cannot be trusted, and is not used
+          {_} -> nil
+        end
       else
         state
       end

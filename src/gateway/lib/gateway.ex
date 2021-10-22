@@ -30,8 +30,9 @@ defmodule Gateway do
   end
   
   @impl true
-  def handle_info({:circuits_uart, _, {:error, _}}, state) do
-    {:noreply, state}
+  def handle_info({:circuits_uart, _, {:error, :eio}}, state) do
+    IO.puts("Exiting gateway")
+    {:stop, :error, state}
   end
   
   @impl true
