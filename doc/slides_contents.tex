@@ -278,6 +278,26 @@
 \subsection{Hexadecimal Repræsentation}
 \begin{frame}
     \frametitle{Hexadecimal Repræsentation}
+    \vspace{3mm}
+    Altså, en farve i en computer er et punkt i et 3d koordinatsystem med en gru ndfarve på hver akse, og hvor hver akse spænder mellem 0 og 1.
+    
+    \vspace{5mm}
+    I praksis arbejder man med 8 bit per \textsl{kanal}. Dette betyder at hver akse (aka kanal) inddeles i $2^8=256$ niveauer. Dette giver $256^3=16777216$ forskellige farver.
+    
+    \vspace{5mm}
+    I HTML filer beskrives disse værdier typisk hexadecimalt, altså ved hjælp af et 16-tals system. 
+    
+    \vspace{5mm}
+    Der følges formatet "\texttt{rrggbb}". I hver farves kodning repræsenterer det højre tegn en værdi mellem 0 og 15 (herunder ${a\mapsto 10, b \mapsto 11, c \mapsto 12, d \mapsto 13, e \mapsto 14, f \mapsto 15}$), og det venstre tegn er 16 gange så meget værd.
+    
+     \vspace{5mm}
+     \textcolor{black}{\texttt{000000}}
+     \textcolor{red}{\texttt{ff0000}}
+     \textcolor{green}{\texttt{00ff00}}
+     \textcolor{blue}{\texttt{0000ff}}
+     \textcolor{yellow}{\texttt{ffff00}}
+     \textcolor{cyan}{\texttt{00ffff}}
+     \textcolor{magenta}{\texttt{ff00ff}}
 \end{frame}
 
 \subsection{Repræsentation med Tripletter}
