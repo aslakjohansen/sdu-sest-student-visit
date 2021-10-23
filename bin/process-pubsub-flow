@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+from sys import argv
+from svgnarrative import Model
+from subprocess import Popen, STDOUT, PIPE
+
+#################################################################
+##################################################### definitions
+
+i = 0
+m = Model('figs/pubsub_flow.svg')
+
+highlights = [
+  'g6198-3',
+  'g6198-3-3',
+]
+
+#################################################################
+######################################################### helpers
+
+def store ():
+  global i
+  filename_svg = 'figs/pubsub_flow%d.svg' % i
+  m.store(filename_svg)
+  i += 1
+
+#################################################################
+############################################################ main
+
+m.highlight(highlights, '#0000ff')
+store()
+
