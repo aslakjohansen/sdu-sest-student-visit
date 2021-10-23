@@ -12,7 +12,6 @@ result += "</ul>"
 
 if ('temp' in data)
   result += "<p>data inddeholder nøglen 'temp'</p>"
-
 if ('wind' in data)
   result += "<p>data inddeholder nøglen 'wind'</p>"
 
