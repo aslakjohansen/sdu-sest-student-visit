@@ -79,11 +79,21 @@
 \subsection{Anatomien af et Tag}
 \begin{frame}
     \frametitle{Anatomien af et Tag}
+    \vspace{3mm}
+    Overblik:
     \begin{itemize}
-      \item Begyndelse of afslutning.
-      \item Navn.
-      \item Shorthand hvis indhold er tomt.
-      \item parametre.
+      \item Indkapsling: \texttt{<\tagname{div}> \ldots\  </\tagname{div}>}
+      \item Navn: \texttt{<\tagname{div}> \ldots\  </\tagname{div}>} $\rightarrow$ \texttt{\tagname{div}}
+      \item Shorthand hvis indhold er tomt: \texttt{<\tagname{div}></\tagname{div}>} $\rightarrow$ \texttt{<\tagname{div} />}
+      \item Parametre: \texttt{<\tagname{div} \tagkey{a}=\tagvalue{"1"} \tagkey{b}=\tagvalue{"2"} />}
+      \item Identitet: \texttt{<\tagname{div} \tagkey{id}=\tagvalue{"data"} />}
+    \end{itemize}
+    
+    \vspace{5mm}
+    Dokumentet organiseres ved at
+    \begin{itemize}
+      \item placere tags indeni hinanden.
+      \item placere tags efter hinancen, eventuelt med tekst imellem.
     \end{itemize}
 \end{frame}
 

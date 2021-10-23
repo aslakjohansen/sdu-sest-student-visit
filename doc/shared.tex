@@ -11,11 +11,19 @@
 \usepackage{color} % for colored text
 \usepackage{color, colortbl} % for colored tables
 \usepackage{xcolor} % for colored cells in tables
+%\usepackage[dvipsnames]{xcolor} % for definecolor
 \usepackage{fancyvrb} % for different fontsize in verbatim
 \usepackage[T1]{fontenc} % for |
 
+\definecolor{htmltagnamecolor}{RGB}{0, 128, 0}
+\definecolor{htmltagkeycolor}{RGB}{125, 143, 40}
+\definecolor{htmltagvaluecolor}{RGB}{186, 33, 33}
+
 \newcommand{\hlthing}[1]{\textcolor{orange}{#1}}
 \newcommand{\hlcomment}[1]{\textcolor{blue}{#1}}
+\newcommand{\tagname}[1]{\textcolor{htmltagnamecolor}{#1}}
+\newcommand{\tagkey}[1]{\textcolor{htmltagkeycolor}{#1}}
+\newcommand{\tagvalue}[1]{\textcolor{htmltagvaluecolor}{#1}}
 
 % sparql highlighting
 \usepackage[cache=false]{minted}            % code inclusion
