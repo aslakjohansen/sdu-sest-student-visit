@@ -450,10 +450,49 @@
 \begin{frame}
     \frametitle{Manuel Publicering}
 \end{frame}
+\subsubsection{HTML Fil}
+\begin{frame}
+    \frametitle{Modtagelse af Beskeder - HTML Fil}
+    \vspace{-2mm}
+    \inputminted[fontsize=\footnotesize,breaklines=true,highlightlines={}]{html}{../src/frontend/part7_publish/index.html}
+\end{frame}
+\begin{frame}
+    \frametitle{Modtagelse af Beskeder - HTML Fil}
+    \vspace{-2mm}
+    \inputminted[fontsize=\footnotesize,breaklines=true,highlightlines={9,11,12}]{html}{../src/frontend/part7_publish/index.html}
+\end{frame}
+
+\subsubsection{JavaScript Fil}
+\begin{frame}
+    \frametitle{Modtagelse af Beskeder - JavaScript Fil}
+    \vspace{-1mm}
+    \inputminted[fontsize=\normalsize,highlightlines={}]{javascript}{../src/frontend/part7_publish/logic.js}
+\end{frame}
+\begin{frame}
+    \frametitle{Modtagelse af Beskeder - JavaScript Fil}
+    \vspace{-1mm}
+    \inputminted[fontsize=\normalsize,highlightlines={3,4}]{javascript}{../src/frontend/part7_publish/logic.js}
+\end{frame}
 
 \subsection{Robusthed}
 \begin{frame}
     \frametitle{Robusthed}
+    Hvad sker der hvis vi sender strengen "\texttt{\{"temperature":}" i stedet for et gyldigt JSON objekt?
+    \pause
+    
+    \vspace{5mm}
+    Vores modtager holder op med at reagere!
+    \pause
+    
+    \vspace{5mm}
+    Et program siges at være \textsl{robust} hvis det reagerer hensigtsmæssigt (e.g., det ikke crasher) når det gives fejlbehæftede input.
+\end{frame}
+\begin{frame}
+    \frametitle{JavaScript Fil}
+    \vspace{-2mm}
+    \begin{multicols}{2}
+      \inputminted[fontsize=\tiny,highlightlines={30-34}]{javascript}{../src/frontend/part7_plot/logic.js}
+    \end{multicols}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

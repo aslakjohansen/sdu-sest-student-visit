@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Test Producer</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Publicér til broker.hivemq.com:8000</h1>
+    
+    <p>Topic: <input type="text" id="topic" value="dk/sdu/sest/test"/></p>
+    <p>Besked:</p>
+    <textarea id="payload" rows=10 cols="60">{"temperature": 16, "Humidity":53}</textarea>
+    <p><button onclick="clicked()">Send</button></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+    <script src="logic.js" type="text/javascript"></script>
+  </body>
+</html>
