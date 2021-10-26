@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+from sys import argv
+from svgnarrative import Model
+from subprocess import Popen, STDOUT, PIPE
+
+#################################################################
+##################################################### definitions
+
+i = 0
+m = Model('figs/object-struct.svg')
+
+temp = [
+  'g3897',
+  'path1038',
+  'g4145',
+]
+
+hum = [
+  'g3876',
+  'path1038-7',
+  'g3858',
+]
+
+#################################################################
+######################################################### helpers
+
+def store ():
+  global i
+  filename_svg = 'figs/object-struct%d.svg' % i
+  m.store(filename_svg)
+  i += 1
+
+#################################################################
+############################################################ main
+
+m.hide(temp)
+m.hide(hum)
+store()
+
+m.show(temp)
+store()
+
+m.show(hum)
+store()
+

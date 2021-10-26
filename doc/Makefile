@@ -22,6 +22,7 @@ mrproper: clean
 
 .includes/slides.timestamp: .includes slides_*.tex shared.tex
 	python3 ../bin/process-pubsub-flow
+	python3 ../bin/process-object-struct
 	cd .. ; bin/generate-tex-includes PDF doc/slides_handouts.tex doc
 	touch .includes/slides.timestamp
 
