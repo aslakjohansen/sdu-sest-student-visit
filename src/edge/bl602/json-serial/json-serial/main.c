@@ -60,8 +60,10 @@ void TaskSample (void *pvParameters)
         float f = (val*5/4096.0 - 0.5)/0.01;
         float c = (f-32)*5/9;
         
-        
         printf("{\"temperature\": %f}\n", c);
+        
+        const TickType_t xDelay = 1000 / portTICK_PERIOD_MS;
+        vTaskDelay(xDelay);
     }
 }
 
