@@ -27,6 +27,10 @@ defmodule Scanner do
         %{description:  "CP2102 USB to UART Bridge Controller",
           manufacturer: "Silicon Labs"}
           -> {true, 115200}
+        %{description: "USB Serial",
+          product_id: 29987,
+          vendor_id: 6790}
+          -> {true, 9600}
         _ -> {false, nil}
       end
       if match do
