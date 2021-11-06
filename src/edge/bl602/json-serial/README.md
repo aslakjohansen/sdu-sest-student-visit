@@ -1,3 +1,7 @@
+# Configuring
+
+A MCP9700 thermistor is expected to be connected to GND, 3.3V and IO4.
+
 # Building
 
 First, check out this [repo](https://github.com/pine64/bl_iot_sdk) and follow the instructions for setting up the `$BL60X_SDK_PATH` and `$CONFIG_CHIP_NAME` environment variables.
