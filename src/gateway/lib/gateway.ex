@@ -18,7 +18,7 @@ defmodule Gateway do
   defp via_tuple(device) do
     GatewayRegistry.via_tuple({__MODULE__, device})
   end
-
+  
   # callback functions
   
   @impl true

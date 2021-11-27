@@ -13,7 +13,7 @@ defmodule Publisher do
   def publish(pid, payload) do
     GenServer.cast(pid, {:publish, payload})
   end
-
+  
   # callback functions
   
   @impl true
