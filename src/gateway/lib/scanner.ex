@@ -2,6 +2,7 @@ defmodule Scanner do
   use GenServer
   
   @sleeptime 1000*10
+  @topic "dk/sdu/sest/test"
   
   def start_link(_) do
     GenServer.start(Scanner, {})
@@ -34,8 +35,7 @@ defmodule Scanner do
         _ -> {false, nil}
       end
       if match do
-        topic = "dk/sdu/sest/test"
-        case Gateway.start_link(topic, device, speed) do
+        case Gateway.start_link(@topic, device, speed) do
           {:ok, pid} ->
             Map.put(state, device, pid) #TODO: this pid cannot be trusted, and is not used
           {:error, _} -> nil
