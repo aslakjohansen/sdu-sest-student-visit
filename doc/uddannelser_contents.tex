@@ -118,6 +118,77 @@
   }
 \end{frame}
 
+\subsection{Software Engineering Processen}
+\begin{frame}[fragile]
+  \frametitle{Introduktion $\vartriangleright$ Software Engineering Processen}
+  \vspace{22mm}
+  
+  \scalebox{0.94}{
+    \begin{tikzpicture}[remember picture,overlay]
+      \newcommand{\xspacing}[0]{6mm}
+      
+      \coordinate (origo) at (2cm,0);
+      
+      \tikzstyle{node}=[
+        overlay,
+        rectangle,
+        draw=purple,
+        anchor=center,
+        align=center,
+        thick,
+        inner sep=4mm,
+        minimum height=1.2cm,
+      ]
+      \tikzstyle{edge}  = [
+        thick,
+        ->,
+        >=stealth,
+        draw=purple,
+      ]
+      
+      % krav
+      \only<1->{
+        \node[node, anchor=north] (krav) at (origo) {Krav};
+      }
+      
+      % ana
+      \only<2->{
+        \node[node, anchor=west] (ana) at ([xshift=\xspacing] krav.east) {Analyse};
+        \draw[edge] (krav)--(ana);
+      }
+      
+      % design
+      \only<3->{
+        \node[node, anchor=west] (design) at ([xshift=\xspacing] ana.east) {Design};
+        \draw[edge] (ana)--(design);
+      }
+      
+      % impl
+      \only<4->{
+        \node[node, anchor=west] (impl) at ([xshift=\xspacing] design.east) {Implementering};
+        \draw[edge] (design)--(impl);
+      }
+      
+      % eval
+      \only<5->{
+        \node[node, anchor=west] (eval) at ([xshift=\xspacing] impl.east) {Evaluering};
+        \draw[edge] (impl)--(eval);
+      }
+      
+      % eval
+      \only<6->{
+        \draw[edge, dashed] (eval.south) |- ([yshift=-8mm] ana.south) -| (ana.south);
+      }
+      
+      % ?
+      \only<7->{
+        \node[node, anchor=east, dashed] (question) at ([xshift=-\xspacing] krav.west) {?};
+        \draw[edge, dashed] (question)--(krav);
+      }
+    \end{tikzpicture}
+  }
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Software Engineering
 \section{Software Engineering}
