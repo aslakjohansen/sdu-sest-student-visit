@@ -207,7 +207,6 @@
     minimum height=\cellheight,
     minimum width=(#4-#3)*\cellwidth+((#4-#3)-1)*\cellspacing,
   ]
-%  ( #1 ) at (0,-4cm)
   (
     #1
   ) at (
@@ -216,33 +215,9 @@
       yshift=\yoffset+(#2-1)*\cellheight+(#2-2)*\cellspacing,
     ] semorigo)
   {
-%    \textbf{#5}\\#6 
     #5\\\textcolor{orange}{#6 ECTS}
   }
 }
-%\newcommand{\entry}[6]{
-%  \node[
-%    rectangle,
-%    draw=purple,
-%    anchor=south west,
-%    align=center,
-%    minimum height=\cellheight,
-%    minimum width=(#4-#3)*\cellwidth+((#4-#3)-1)*\cellspacing,
-%  ]
-%  (
-%    #1
-%  ) at (
-%    [
-%      xshift=\xoffset+#3*\cellwidth+(#3-1)*\cellspacing,
-%      yshift=\yoffset+(#2-1)*\cellheight+(#2-2)*\cellspacing,
-%    ]
-%%    semorigo
-%    0,-4cm
-%  )
-%  {
-%    \textbf{#5}\\\textcolor{orange}{#6 ECTS}
-%  }
-%}
 
 \subsection{Studiets Opbygning}
 \begin{frame}[fragile]
