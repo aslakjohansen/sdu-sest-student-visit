@@ -207,9 +207,7 @@
     minimum height=\cellheight,
     minimum width=(#4-#3)*\cellwidth+((#4-#3)-1)*\cellspacing,
   ]
-  (
-    #1
-  ) at (
+  (#1) at (
     [
       xshift=\xoffset+#3*\cellwidth+(#3-1)*\cellspacing,
       yshift=\yoffset+(#2-1)*\cellheight+(#2-2)*\cellspacing,
@@ -312,6 +310,7 @@
       
       % bsc
       \only<8->{
+        \draw[overlay,decorate,decoration={brace, mirror, amplitude=10pt, raise=5pt}] (semI.south east) to node[black,midway,right=15pt] {\rotatebox{90}{Bachelor}} (bsc.north east);
       }
       
       % sem7
@@ -350,6 +349,7 @@
       
       % sem10
       \only<13->{
+        \draw[overlay,decorate,decoration={brace, mirror, amplitude=10pt, raise=5pt}] (valgIV.south east) to node[black,midway,right=15pt] {\rotatebox{90}{Master / Kandidat}} (msc.north east);
       }
     \end{tikzpicture}
   }
