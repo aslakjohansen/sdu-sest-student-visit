@@ -230,7 +230,8 @@
       \newcommand{\width}[0]{(4*\cellwidth+3*\cellspacing)}
       \newcommand{\ewidth}[0]{(\width+0.8mm)}
       \newcommand{\height}[0]{16cm}
-      \newcommand{\xoffset}[0]{6mm}
+      \newcommand{\xoffset}[0]{24mm}
+      \newcommand{\labelpad}[0]{32mm}
       \newcommand{\yoffset}[0]{-\height}
       
       \coordinate (origo) at (\xoffset,\yoffset);
@@ -263,6 +264,7 @@
         \entry{sda}{1}{1}{2}{\textbf{Statistisk}\\\textbf{Datanalyse}}{5};
         \entry{oop}{1}{2}{4}{\textbf{Objektorienteret Programmering}\\}{10};
         \entry{semI}{1}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwareprogrammer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labI) at (cos.west) {\textbf{Semester 1}};
       }
       
       % sem2
@@ -271,6 +273,7 @@
         \entry{vop}{2}{2}{3}{\textbf{Videregående}\\\textbf{OOP}}{5};
         \entry{md}{2}{3}{4}{\textbf{Data Management}\\}{5};
         \entry{semII}{2}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwaresystemer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labII) at (seo.west) {\textbf{Semester 2}};
       }
       
       % sem3
@@ -280,6 +283,7 @@
         \entry{webtech}{3}{2}{3}{\textbf{Web}\\\textbf{Technologies}}{5};
         \entry{osd}{3}{3}{4}{\textbf{Operativsystemer}\\\textbf{og Dist. Systemer}}{5};
         \entry{semIII}{3}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Interaktive Distribuerede Systemer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labIII) at (hci.west) {\textbf{Semester 3}};
       }
       
       % sem4
@@ -288,6 +292,7 @@
         \entry{component}{4}{1}{2}{\textbf{Komponentbaserede}\\\textbf{Systemer}}{5};
         \entry{mathalgodat}{4}{2}{4}{\textbf{Diskret Matematik, Algoritmer}\\\textbf{og Datastrukturer}}{10};
         \entry{semIV}{4}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Intelligente Softwaresystemer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labIV) at (ai.west) {\textbf{Semester 4}};
       }
       
       % sem5
@@ -298,6 +303,7 @@
         \entry{valgI}{5}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
         \entry{valgII}{5}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
         \entry{valgIII}{5}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labV) at (security.west) {\textbf{Semester 5}};
       }
       
       % sem6
@@ -306,6 +312,7 @@
         \entry{teori}{6}{1}{2}{\textbf{Ingeniørfagets}\\\textbf{Videnskabsteori}}{3};
         \entry{ledelse}{6}{2}{3}{\textbf{Projektledelse og}\\\textbf{Forundersøgelse}}{7};
         \entry{bsc}{6}{3}{6}{\textbf{Bachelorprojekt}\\\textbf{}}{15};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labVI) at (arch.west) {\textbf{Semester 6}};
       }
       
       % bsc
@@ -321,6 +328,7 @@
         \entry{bigdata}{7}{3}{4}{\textbf{Big Data and Data}\\\textbf{Science Tech.}}{5};
         \entry{semVII}{7}{4}{5}{\textbf{Semesterprojekt:}\\\textbf{Scalable Systems }}{5};
         \entry{valgIV}{7}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labVII) at (sci.west) {\textbf{Semester 7}};
       }
       
       % sem8
@@ -331,6 +339,7 @@
         \entry{semIIX}{8}{3}{4}{\textbf{Semesterprojekt:}\\\textbf{\scalebox{0.9}{Trustworthy Systems}}}{5};
         \entry{valgV}{8}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
         \entry{valgVI}{8}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labIIX) at (analver.west) {\textbf{Semester 8}};
       }
       
       % sem9
@@ -340,14 +349,16 @@
         \entry{valgVII}{9}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
         \entry{valgIIX}{9}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
         \entry{valgIX}{9}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labIX) at (inno.west) {\textbf{Semester 9}};
       }
       
       % sem10
       \only<12->{
         \entry{msc}{10}{0}{6}{\textbf{MSc Projekt}\\\textbf{}}{30};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labX) at (msc.west) {\textbf{Semester 10}};
       }
       
-      % sem10
+      % msc
       \only<13->{
         \draw[overlay,decorate,decoration={brace, mirror, amplitude=10pt, raise=5pt}] (valgIV.south east) to node[black,midway,right=15pt] {\rotatebox{90}{Master / Kandidat}} (msc.north east);
       }
