@@ -197,8 +197,8 @@
     \end{center}
 \end{frame}
 
-% args: 1:prefix 2:semester 3:index_west 4:index_east 5:title 6:ects
-\newcommand{\entry}[6]{
+% args: 1:prefix 2:semester 3:index_west 4:index_east 5:title 6:ects 7:style
+\newcommand{\entry}[7]{
   \node[
     rectangle,
     draw=purple,
@@ -206,6 +206,7 @@
     align=center,
     minimum height=\cellheight,
     minimum width=(#4-#3)*\cellwidth+((#4-#3)-1)*\cellspacing,
+    #7
   ]
   (#1) at (
     [
@@ -216,6 +217,10 @@
     #5\\\textcolor{orange}{#6 ECTS}
   }
 }
+
+\newcommand{\entryNormal}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{}}
+\newcommand{\entryProject}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{fill=purple!10,}}
+\newcommand{\entryElective}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{pattern=north east lines, pattern color=purple!10, even odd rule,}}
 
 \subsection{Studiets Opbygning}
 \begin{frame}[fragile]
@@ -260,58 +265,58 @@
       
       % sem1
       \only<2->{
-        \entry{cos}{1}{0}{1}{\textbf{Computersystemer}\\}{5};
-        \entry{sda}{1}{1}{2}{\textbf{Statistisk}\\\textbf{Datanalyse}}{5};
-        \entry{oop}{1}{2}{4}{\textbf{Objektorienteret Programmering}\\}{10};
-        \entry{semI}{1}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwareprogrammer}}{10};
+        \entryNormal{cos}{1}{0}{1}{\textbf{Computersystemer}\\}{5};
+        \entryNormal{sda}{1}{1}{2}{\textbf{Statistisk}\\\textbf{Datanalyse}}{5};
+        \entryNormal{oop}{1}{2}{4}{\textbf{Objektorienteret Programmering}\\}{10};
+        \entryProject{semI}{1}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwareprogrammer}}{10};
         \node[align=left, minimum width=\labelpad, anchor=east] (labI) at (cos.west) {\textbf{Semester 1}};
       }
       
       % sem2
       \only<3->{
-        \entry{seo}{2}{0}{2}{\textbf{Software Engineering}\\\textbf{og Organisation}}{10};
-        \entry{vop}{2}{2}{3}{\textbf{Videregående}\\\textbf{OOP}}{5};
-        \entry{md}{2}{3}{4}{\textbf{Data Management}\\}{5};
-        \entry{semII}{2}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwaresystemer}}{10};
+        \entryNormal{seo}{2}{0}{2}{\textbf{Software Engineering}\\\textbf{og Organisation}}{10};
+        \entryNormal{vop}{2}{2}{3}{\textbf{Videregående}\\\textbf{OOP}}{5};
+        \entryNormal{md}{2}{3}{4}{\textbf{Data Management}\\}{5};
+        \entryProject{semII}{2}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwaresystemer}}{10};
         \node[align=left, minimum width=\labelpad, anchor=east] (labII) at (seo.west) {\textbf{Semester 2}};
       }
       
       % sem3
       \only<4->{
-        \entry{hci}{3}{0}{1}{\textbf{Human Computer}\\\textbf{Interaction}}{5};
-        \entry{calc}{3}{1}{2}{\textbf{Calculus og}\\\textbf{Lineær Algebra}}{5};
-        \entry{webtech}{3}{2}{3}{\textbf{Web}\\\textbf{Technologies}}{5};
-        \entry{osd}{3}{3}{4}{\textbf{Operativsystemer}\\\textbf{og Dist. Systemer}}{5};
-        \entry{semIII}{3}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Interaktive Distribuerede Systemer}}{10};
+        \entryNormal{hci}{3}{0}{1}{\textbf{Human Computer}\\\textbf{Interaction}}{5};
+        \entryNormal{calc}{3}{1}{2}{\textbf{Calculus og}\\\textbf{Lineær Algebra}}{5};
+        \entryNormal{webtech}{3}{2}{3}{\textbf{Web}\\\textbf{Technologies}}{5};
+        \entryNormal{osd}{3}{3}{4}{\textbf{Operativsystemer}\\\textbf{og Dist. Systemer}}{5};
+        \entryProject{semIII}{3}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Interaktive Distribuerede Systemer}}{10};
         \node[align=left, minimum width=\labelpad, anchor=east] (labIII) at (hci.west) {\textbf{Semester 3}};
       }
       
       % sem4
       \only<5->{
-        \entry{ai}{4}{0}{1}{\textbf{Kunstig}\\\textbf{Intelligens}}{5};
-        \entry{component}{4}{1}{2}{\textbf{Komponentbaserede}\\\textbf{Systemer}}{5};
-        \entry{mathalgodat}{4}{2}{4}{\textbf{Diskret Matematik, Algoritmer}\\\textbf{og Datastrukturer}}{10};
-        \entry{semIV}{4}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Intelligente Softwaresystemer}}{10};
+        \entryNormal{ai}{4}{0}{1}{\textbf{Kunstig}\\\textbf{Intelligens}}{5};
+        \entryNormal{component}{4}{1}{2}{\textbf{Komponentbaserede}\\\textbf{Systemer}}{5};
+        \entryNormal{mathalgodat}{4}{2}{4}{\textbf{Diskret Matematik, Algoritmer}\\\textbf{og Datastrukturer}}{10};
+        \entryProject{semIV}{4}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Intelligente Softwaresystemer}}{10};
         \node[align=left, minimum width=\labelpad, anchor=east] (labIV) at (ai.west) {\textbf{Semester 4}};
       }
       
       % sem5
       \only<6->{
-        \entry{security}{5}{0}{1}{\textbf{Cybersecurity}\\\textbf{}}{5};
-        \entry{mobile}{5}{1}{2}{\textbf{Mobile Software}\\\textbf{Development}}{5};
-        \entry{maint}{5}{2}{3}{\textbf{Software}\\\textbf{Maintenance}}{5};
-        \entry{valgI}{5}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entry{valgII}{5}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entry{valgIII}{5}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormal{security}{5}{0}{1}{\textbf{Cybersecurity}\\\textbf{}}{5};
+        \entryNormal{mobile}{5}{1}{2}{\textbf{Mobile Software}\\\textbf{Development}}{5};
+        \entryNormal{maint}{5}{2}{3}{\textbf{Software}\\\textbf{Maintenance}}{5};
+        \entryElective{valgI}{5}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgII}{5}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgIII}{5}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labV) at (security.west) {\textbf{Semester 5}};
       }
       
       % sem6
       \only<7->{
-        \entry{arch}{6}{0}{1}{\textbf{Software}\\\textbf{Arkitektur}}{5};
-        \entry{teori}{6}{1}{2}{\textbf{Ingeniørfagets}\\\textbf{Videnskabsteori}}{3};
-        \entry{ledelse}{6}{2}{3}{\textbf{Projektledelse og}\\\textbf{Forundersøgelse}}{7};
-        \entry{bsc}{6}{3}{6}{\textbf{Bachelorprojekt}\\\textbf{}}{15};
+        \entryNormal{arch}{6}{0}{1}{\textbf{Software}\\\textbf{Arkitektur}}{5};
+        \entryNormal{teori}{6}{1}{2}{\textbf{Ingeniørfagets}\\\textbf{Videnskabsteori}}{3};
+        \entryNormal{ledelse}{6}{2}{3}{\textbf{Projektledelse og}\\\textbf{Forundersøgelse}}{7};
+        \entryProject{bsc}{6}{3}{6}{\textbf{Bachelorprojekt}\\\textbf{}}{15};
         \node[align=left, minimum width=\labelpad, anchor=east] (labVI) at (arch.west) {\textbf{Semester 6}};
       }
       
@@ -322,39 +327,39 @@
       
       % sem7
       \only<9->{
-        \entry{sci}{7}{0}{1}{\textbf{Scientific}\\\textbf{Methods}}{5};
-        \entry{model}{7}{1}{2}{\textbf{Systems}\\\textbf{Modeling}}{5};
-        \entry{ubiq}{7}{2}{3}{\textbf{SE of Mobile and}\\\textbf{Ubiquitous Systems}}{5};
-        \entry{bigdata}{7}{3}{4}{\textbf{Big Data and Data}\\\textbf{Science Tech.}}{5};
-        \entry{semVII}{7}{4}{5}{\textbf{Semesterprojekt:}\\\textbf{Scalable Systems }}{5};
-        \entry{valgIV}{7}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormal{sci}{7}{0}{1}{\textbf{Scientific}\\\textbf{Methods}}{5};
+        \entryNormal{model}{7}{1}{2}{\textbf{Systems}\\\textbf{Modeling}}{5};
+        \entryNormal{ubiq}{7}{2}{3}{\textbf{SE of Mobile and}\\\textbf{Ubiquitous Systems}}{5};
+        \entryNormal{bigdata}{7}{3}{4}{\textbf{Big Data and Data}\\\textbf{Science Tech.}}{5};
+        \entryProject{semVII}{7}{4}{5}{\textbf{Semesterprojekt:}\\\textbf{Scalable Systems }}{5};
+        \entryElective{valgIV}{7}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labVII) at (sci.west) {\textbf{Semester 7}};
       }
       
       % sem8
       \only<10->{
-        \entry{analver}{8}{0}{1}{\textbf{SW System Analysis}\\\textbf{and Verification}}{5};
-        \entry{modeldriven}{8}{1}{2}{\textbf{Model-Driven}\\\textbf{SW Development}}{5};
-        \entry{iot}{8}{2}{3}{\textbf{SW Technology of}\\\textbf{Internet of Things}}{5};
-        \entry{semIIX}{8}{3}{4}{\textbf{Semesterprojekt:}\\\textbf{Trustworthy Systems}}{5};
-        \entry{valgV}{8}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entry{valgVI}{8}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormal{analver}{8}{0}{1}{\textbf{SW System Analysis}\\\textbf{and Verification}}{5};
+        \entryNormal{modeldriven}{8}{1}{2}{\textbf{Model-Driven}\\\textbf{SW Development}}{5};
+        \entryNormal{iot}{8}{2}{3}{\textbf{SW Technology of}\\\textbf{Internet of Things}}{5};
+        \entryProject{semIIX}{8}{3}{4}{\textbf{Semesterprojekt:}\\\textbf{Trustworthy Systems}}{5};
+        \entryElective{valgV}{8}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgVI}{8}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labIIX) at (analver.west) {\textbf{Semester 8}};
       }
       
       % sem9
       \only<11->{
-        \entry{inno}{9}{0}{2}{\textbf{Innovative Software}\\\textbf{Solutions}}{10};
-        \entry{adv}{9}{2}{3}{\textbf{Advanced SE}\\\textbf{Methodologies}}{5};
-        \entry{valgVII}{9}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entry{valgIIX}{9}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entry{valgIX}{9}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormal{inno}{9}{0}{2}{\textbf{Innovative Software}\\\textbf{Solutions}}{10};
+        \entryNormal{adv}{9}{2}{3}{\textbf{Advanced SE}\\\textbf{Methodologies}}{5};
+        \entryElective{valgVII}{9}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgIIX}{9}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgIX}{9}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labIX) at (inno.west) {\textbf{Semester 9}};
       }
       
       % sem10
       \only<12->{
-        \entry{msc}{10}{0}{6}{\textbf{MSc Projekt}\\\textbf{}}{30};
+        \entryProject{msc}{10}{0}{6}{\textbf{MSc Projekt}\\\textbf{}}{30};
         \node[align=left, minimum width=\labelpad, anchor=east] (labX) at (msc.west) {\textbf{Semester 10}};
       }
       
