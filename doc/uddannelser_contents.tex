@@ -381,6 +381,115 @@
     \end{center}
 \end{frame}
 
+\subsection{Studiets Opbygning}
+\begin{frame}[fragile]
+  \frametitle{Software Teknologi $\vartriangleright$ Studiets Opbygning}
+  \vspace{-2mm}
+  
+  \scalebox{0.47}{
+    \begin{tikzpicture}[remember picture,overlay]
+      \newcommand{\cellwidth}[0]{4.3cm}
+      \newcommand{\cellheight}[0]{1.5cm}
+      \newcommand{\cellspacing}[0]{2mm}
+      \newcommand{\width}[0]{(4*\cellwidth+3*\cellspacing)}
+      \newcommand{\ewidth}[0]{(\width+0.8mm)}
+      \newcommand{\height}[0]{13.5cm}
+      \newcommand{\xoffset}[0]{24mm}
+      \newcommand{\labelpad}[0]{32mm}
+      \newcommand{\yoffset}[0]{-\height}
+      
+      \coordinate (origo) at (\xoffset,\yoffset);
+%      \coordinate (semorigo) at ([xshift=\xoffset] origo);
+      \coordinate (semorigo) at (0,0);
+      
+      \tikzstyle{node}=[
+        overlay,
+        rectangle,
+        draw=purple,
+        anchor=center,
+        align=center,
+        thick,
+        minimum width=\blockwidth,
+        minimum height=1.2cm,
+      ]
+      \tikzstyle{title} = [
+        anchor=south,
+        align=center,
+      ]
+      \tikzstyle{edge}  = [
+        very thick,
+        >=stealth,
+        draw=purple,
+      ]
+      
+      % sem1
+      \only<2->{
+        \entryNormal{cos}{1}{0}{1}{\textbf{Cyper-Physical}\\\textbf{Systemer}}{5};
+        \entryNormal{sda}{1}{1}{2}{\textbf{Statistisk}\\\textbf{Datanalyse}}{5};
+        \entryNormal{oop}{1}{2}{4}{\textbf{Objektorienteret Programmering}\\}{10};
+        \entryProject{semI}{1}{4}{6}{\textbf{Semesterprojekt:}\\\textbf{Udvikling af Softwareprogrammer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labI) at (cos.west) {\textbf{Semester 1}};
+      }
+      
+      % sem2
+      \only<3->{
+        \entryNormal{seo}{2}{0}{2}{\textbf{Software Engineering og Modelling}\\\textbf{til Cyber-Physical Systemer}}{10};
+        \entryNormal{vop}{2}{2}{3}{\textbf{Videregående}\\\textbf{OOP}}{5};
+        \entryNormal{md}{2}{3}{4}{\textbf{Data Management}\\}{5};
+        \entryProject{semII}{2}{4}{6}{\textbf{Semesterprojekt: Udvikling af}\\\textbf{Softwaresystemer med CPS Elementer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labII) at (seo.west) {\textbf{Semester 2}};
+      }
+      
+      % sem3
+      \only<4->{
+        \entryNormal{indust}{3}{0}{1}{\textbf{Industrielle}\\\scalebox{0.9}{\textbf{Cyper-Physical Systemer}}}{5};
+        \entryNormal{calc}{3}{1}{2}{\textbf{Calculus og}\\\textbf{Lineær Algebra}}{5};
+        \entryNormal{webtech}{3}{2}{3}{\textbf{Web}\\\textbf{Technologies}}{5};
+        \entryNormal{osd}{3}{3}{4}{\textbf{Operativsystemer}\\\textbf{og Dist. Systemer}}{5};
+        \entryProject{semIII}{3}{4}{6}{\textbf{Semesterprojekt: Distribuerede SW Systemer}\\\textbf{med Industrielle Elementer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labIII) at (indust.west) {\textbf{Semester 3}};
+      }
+      
+      % sem4
+      \only<5->{
+        \entryNormal{reliable}{4}{0}{1}{\textbf{Design af Pålidelige}\\\scalebox{0.9}{\textbf{Cyper-Physical Systemer}}}{5};
+        \entryNormal{swtech}{4}{1}{2}{\textbf{Softwareteknologi i}\\\scalebox{0.9}{\textbf{Cyber-Phisical Systemer}}}{7};
+        \entryNormal{compo}{4}{2}{3}{\textbf{Komponentbaserede}\\\textbf{Systemer}}{5};
+        \entryNormal{eng}{4}{3}{4}{\textbf{Ingeniørfagets}\\\textbf{Videnskabsteori}}{3};
+        \entryProject{semIV}{4}{4}{6}{\textbf{Semesterprojekt: Pålidelige Komponentbaserede}\\\textbf{Cyber-Physical Systemer}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labIV) at (reliable.west) {\textbf{Semester 4}};
+      }
+      
+      % sem5
+      \only<6->{
+        \entryNormal{algo}{5}{0}{1}{\textbf{Algoritmer og}\\\textbf{Datastrukturer}}{5};
+        \entryElective{valgI}{5}{1}{2}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgII}{5}{2}{3}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElective{valgIII}{5}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormal{exp}{5}{4}{6}{\textbf{Experts in Teams}\\\textbf{Innovation}}{10};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labV) at (algo.west) {\textbf{Semester 5}};
+      }
+      
+      % sem6
+      \only<7->{
+        \entryProject{prak}{6}{0}{6}{\textbf{Ingeniørpraktik}\\\textbf{}}{30};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labVI) at (prak.west) {\textbf{Semester 6}};
+      }
+      
+      % sem7
+      \only<8->{
+        \entryProject{prak}{7}{0}{6}{\textbf{Afgangsprojekt}\\\textbf{}}{30};
+        \node[align=left, minimum width=\labelpad, anchor=east] (labVI) at (prak.west) {\textbf{Semester 7}};
+      }
+      
+      % diplom
+      \only<9->{
+        \draw[overlay,decorate,decoration={brace, mirror, amplitude=10pt, raise=5pt}] (semI.south east) to node[black,midway,right=15pt] {\rotatebox{90}{\textbf{Diplom}}} (prak.north east);
+      }
+    \end{tikzpicture}
+  }
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Questions
 \section{Spørgsmål}
