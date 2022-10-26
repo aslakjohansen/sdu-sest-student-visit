@@ -287,6 +287,9 @@
 \newcommand{\entryNormal}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{}}
 \newcommand{\entryProject}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{fill=purple!10,}}
 \newcommand{\entryElective}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{pattern=north east lines, pattern color=purple!10, even odd rule,}}
+\newcommand{\entryNormalMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue}}
+\newcommand{\entryProjectMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue,fill=blue!10,}}
+\newcommand{\entryElectiveMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue,pattern=north east lines, pattern color=blue!10, even odd rule,}}
 
 \subsection{Studiets Opbygning}
 \begin{frame}[fragile]
@@ -393,39 +396,39 @@
       
       % sem7
       \only<9->{
-        \entryNormal{sci}{7}{0}{1}{\textbf{Scientific}\\\textbf{Methods}}{5};
-        \entryNormal{model}{7}{1}{2}{\textbf{Systems}\\\textbf{Modeling}}{5};
-        \entryNormal{ubiq}{7}{2}{3}{\textbf{SE of Mobile and}\\\textbf{Ubiquitous Systems}}{5};
-        \entryNormal{bigdata}{7}{3}{4}{\textbf{Big Data and Data}\\\textbf{Science Tech.}}{5};
-        \entryProject{semVII}{7}{4}{5}{\textbf{Semesterprojekt:}\\\textbf{Scalable Systems }}{5};
-        \entryElective{valgIV}{7}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormalMsc{sci}{7}{0}{1}{\textbf{Scientific}\\\textbf{Methods}}{5};
+        \entryNormalMsc{model}{7}{1}{2}{\textbf{Systems}\\\textbf{Modeling}}{5};
+        \entryNormalMsc{ubiq}{7}{2}{3}{\textbf{SE of Mobile and}\\\textbf{Ubiquitous Systems}}{5};
+        \entryNormalMsc{bigdata}{7}{3}{4}{\textbf{Big Data and Data}\\\textbf{Science Tech.}}{5};
+        \entryProjectMsc{semVII}{7}{4}{5}{\textbf{Semesterprojekt:}\\\textbf{Scalable Systems }}{5};
+        \entryElectiveMsc{valgIV}{7}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labVII) at (sci.west) {\textbf{Semester 7}};
       }
       
       % sem8
       \only<10->{
-        \entryNormal{analver}{8}{0}{1}{\textbf{SW System Analysis}\\\textbf{and Verification}}{5};
-        \entryNormal{modeldriven}{8}{1}{2}{\textbf{Model-Driven}\\\textbf{SW Development}}{5};
-        \entryNormal{iot}{8}{2}{3}{\textbf{SW Technology of}\\\textbf{Internet of Things}}{5};
-        \entryProject{semIIX}{8}{3}{4}{\textbf{Semesterprojekt:}\\\textbf{Trustworthy Systems}}{5};
-        \entryElective{valgV}{8}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entryElective{valgVI}{8}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormalMsc{analver}{8}{0}{1}{\textbf{SW System Analysis}\\\textbf{and Verification}}{5};
+        \entryNormalMsc{modeldriven}{8}{1}{2}{\textbf{Model-Driven}\\\textbf{SW Development}}{5};
+        \entryNormalMsc{iot}{8}{2}{3}{\textbf{SW Technology of}\\\textbf{Internet of Things}}{5};
+        \entryProjectMsc{semIIX}{8}{3}{4}{\textbf{Semesterprojekt:}\\\textbf{Trustworthy Systems}}{5};
+        \entryElectiveMsc{valgV}{8}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElectiveMsc{valgVI}{8}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labIIX) at (analver.west) {\textbf{Semester 8}};
       }
       
       % sem9
       \only<11->{
-        \entryNormal{inno}{9}{0}{2}{\textbf{Innovative Software}\\\textbf{Solutions}}{10};
-        \entryNormal{adv}{9}{2}{3}{\textbf{Advanced SE}\\\textbf{Methodologies}}{5};
-        \entryElective{valgVII}{9}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entryElective{valgIIX}{9}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
-        \entryElective{valgIX}{9}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryNormalMsc{inno}{9}{0}{2}{\textbf{Innovative Software}\\\textbf{Solutions}}{10};
+        \entryNormalMsc{adv}{9}{2}{3}{\textbf{Advanced SE}\\\textbf{Methodologies}}{5};
+        \entryElectiveMsc{valgVII}{9}{3}{4}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElectiveMsc{valgIIX}{9}{4}{5}{\textbf{Valgfag}\\\textbf{}}{5};
+        \entryElectiveMsc{valgIX}{9}{5}{6}{\textbf{Valgfag}\\\textbf{}}{5};
         \node[align=left, minimum width=\labelpad, anchor=east] (labIX) at (inno.west) {\textbf{Semester 9}};
       }
       
       % sem10
       \only<12->{
-        \entryProject{msc}{10}{0}{6}{\textbf{MSc Projekt}\\\textbf{}}{30};
+        \entryProjectMsc{msc}{10}{0}{6}{\textbf{MSc Projekt}\\\textbf{}}{30};
         \node[align=left, minimum width=\labelpad, anchor=east] (labX) at (msc.west) {\textbf{Semester 10}};
       }
       
