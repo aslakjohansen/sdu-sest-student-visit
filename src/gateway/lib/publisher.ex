@@ -23,7 +23,7 @@ defmodule Publisher do
       {:ok, _pid} = Tortoise.Connection.start_link(
           client_id: client_id,
           server: {Tortoise.Transport.Tcp, host: @host, port: @port},
-          handler: {Tortoise.Handler.Logger, []},
+          handler: {Tortoise.Handler.Logger, []}
       )
       {:ok, %{client_id: client_id, topic: args[:topic]}}
   end
