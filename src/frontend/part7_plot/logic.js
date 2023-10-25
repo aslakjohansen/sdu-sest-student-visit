@@ -26,6 +26,7 @@ function colorize(type, value) {
 
 
 
+
 function onMessageArrived(message) {
   try {
     payload = JSON.parse(message.payloadString);
