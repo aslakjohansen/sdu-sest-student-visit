@@ -21,6 +21,7 @@ function colorize(type, value) {
 
 
 
+
 function onMessageArrived(message) {
   payload = JSON.parse(message.payloadString);
   keys = Object.keys(payload);
