@@ -166,7 +166,7 @@
   \textbf{Spiludvikling og Læringsteknologi}
   \begin{itemize}
     \descitem{Ingeniør:} BSc og MSc
-    \descitem{Domæne:} Læringsteori, Spilprogrammering, Virtual \& Augmented Reality, Robotik
+    \descitem{Domæne:} Læringsteori, Spilprogrammering, Virtual \& Augmented Reality, Robotik, Historiefortælling
     \item Programmering
   \end{itemize}
 \end{frame}
@@ -176,7 +176,7 @@
   \textbf{Robotteknologi}
   \begin{itemize}
     \descitem{Ingeniør:} BSc (både diplom og civil) og MSc
-    \descitem{Domæne:} Mekanik, Elektronik, Kinematik
+    \descitem{Domæne:} Mekanik, Elektronik, Kinematik, Radio
     \item Programmering
   \end{itemize}
   
@@ -184,7 +184,7 @@
   \vspace{9mm}
   \textbf{Drones and Autonomous Systems}
   \begin{itemize}
-    \descitem{Ingeniør:} MSc (overbygning til tobotteknologi)
+    \descitem{Ingeniør:} MSc (overbygning til robotteknologi)
     \descitem{Domæne:} Autonome systemer
     \item Programmering
   \end{itemize}
@@ -247,9 +247,13 @@
         \draw[edge] (impl)--(eval);
       }
       
-      % eval
+      % iteration
       \only<6->{
-        \draw[edge, dashed] (eval.south) |- ([yshift=-8mm] ana.south) -| (ana.south);
+        \draw[edge, dashed] (eval.south)
+          |- ([yshift=-8mm] ana.south)
+          -| (ana.south)
+        ;
+        \node[below] (iteration) at ([yshift=-8mm] $(eval.south)!.5!(ana.south)$) {\textsl{iteration}};
       }
       
       % ?
@@ -274,7 +278,7 @@
     \item Binder semesterets øvrige kurser sammen igennem tværfagligt arbejde.
     \item Praktisk problemorienteret arbejde.
     \item Udføres i grupper.
-    \item Fylder 10 ECTS (på BSC/Diplom) eller 5 ECTS (på MSc).
+    \item Fylder 10 ECTS.
     \item Rapportaflevering med mundtligt forsvar.
   \end{itemize}
 \end{frame}
@@ -304,7 +308,7 @@
   
   \pause
   \vspace{3mm}
-  Kendetegnet for disse er at der arbejdes med software i forhold til en organisation.
+  Kendetegnet for disse er, at der arbejdes med software i forhold til en organisation.
   
   \pause
   \vspace{3mm}
@@ -577,7 +581,7 @@
   \textbf{Størrelse:}
   \begin{itemize}
     \descitem{30 ECTS} som udgangspunkt\pause, men
-    \descitem{40 ECTS} som mulighed. Dette vil "koste" et valgfag på 10 ECTS på 9. semester 
+    \descitem{40 ECTS} som mulighed. Dette vil \say{koste} et valgfag på 10 ECTS på 9. semester.
   \end{itemize}
   
   \pause
@@ -598,19 +602,24 @@
 \subsection{Studiet}
 \begin{frame}[fragile]
   \frametitle{Software Teknologi $\vartriangleright$ Studiet}
-  \vspace{3mm}
+  \vspace{1mm}
   Software Teknologer er Software Ingeniører, men \ldots
   \begin{itemize}
-    \item Uddannelsen er rettet mod en specifik klasse af professioner:
+    \item Endnu mere fokus på anvendelser.
+    \item Uddannelsen er rettet mod en specifikke opgaver:
       \begin{itemize}
-        \item Industrielle kontrolsystemer
-        \item Indlejrede systemer
-        \item Cyber-Physical Systemer
+        \item Understøttelse af den digitale transformation ved hjælp af web grænseflader og test.
+        \item At bruge digital teknologi til at skabe løsninger der understøtter arbejdsprocesser som tidligere har været papirbaserede.
       \end{itemize}
     \pause
     \item Uddannelsen er mere specialiseret: \\
-      Hvor software ingeniør studiet give brede kompetencer, har man på software teknologi studiet valgt at skære de emner fra som ikke er relevante for indlejrede systemer mod at man kan gå mere i dybden med disse.
+      Hvor software ingeniør studiet give brede kompetencer, har man på software teknologi studiet valgt at skære de emner fra som ikke er relevante for ovenstående problemstillinger mod at man kan gå mere i dybden med disse.
   \end{itemize}
+  
+  \pause
+  \vspace{3mm}
+  \textbf{Uddannelsen er mere specialiseret:} \\
+  Hvor software ingeniør studiet give brede kompetencer, har man på software teknologi studiet valgt at skære de emner fra som ikke er relevante for ovenstående problemstillinger mod at man kan gå mere i dybden med disse.
 \end{frame}
 
 \subsection{Studiets Opbygning}
