@@ -284,12 +284,150 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Den Syddanske Ingeniør
+\section{Den Syddanske Ingeniør}
+\begin{frame}
+  \vspace{25mm}
+  \begin{center}
+    \Huge{Part 2:\\Den Syddanske Ingeniør}
+  \end{center}
+\end{frame}
+
+\subsection{Hvad er en Ingeniør?}
+\begin{frame}[fragile]
+  \frametitle{Hvad er en Ingeniør?}
+  
+  \newcommand{\scaletext}[1]{\scriptsize{#1}}
+  
+  \vspace{0mm}
+  \scaletext{
+    Ingeniør, person, som er uddannet til at \only<1>{udføre teknisk forskning og udvikling samt til at løse tekniske opgaver}\only<2->{\textcolor{teal}{udføre teknisk forskning og udvikling samt til at løse tekniske opgaver}} og gennemføre projekter inden for bl.a. bygge- og anlægsarbejder, maskinkonstruktion, produktion og energi \only<-2>{under hensyntagen til mennesker, miljø og økonomi}\only<3->{\textcolor{teal}{under hensyntagen til mennesker, miljø og økonomi}}.
+  }
+  
+  \vspace{3mm}
+  \scaletext{
+    \textbf{Etymologi:}
+    Ordet ingeniør kommer af fransk ingénieur, afledt af mlat. ingenium '(krigs)maskine', af latin ingenium 'kløgt, begavelse, påfund'. 
+  }
+  
+  \vspace{3mm}
+  \scaletext{
+    Oprindelig blev betegnelsen ingeniør kun brugt i militær sammenhæng om personer, der stod for fæstningsbyggeri, konstruktion af krigsmateriel osv. Fra 1760'erne begyndte man i England under den industrielle revolution at skelne mellem militære og civile ingeniører, hvor de sidste bl.a. stod for bygningen af store kanal- og vejanlæg. Den formelle uddannelse af ingeniører indledtes dog i Frankrig, hvor især oprettelsen i 1794 af École polytechnique med vægten lagt på et matematisk-naturvidenskabeligt grundlag dannede mønster for tilsvarende skoler i andre lande.
+  }
+  
+  \vspace{3mm}
+  \scaletext{
+    I Danmark begyndte uddannelsen til ingeniør med H. C. Ørsteds grundlæggelse i 1829 af Den Polytekniske Læreanstalt, nuv. Danmarks Tekniske Universitet (DTU). Man kunne fra begyndelsen vælge mellem at blive kandidat i anvendt naturvidenskab (fra 1898 kaldt fabrikingeniør, fra 1948 kemiingeniør) og kandidat i mekanik (fra 1899 maskiningeniør). I 1857 begyndte uddannelsen til bygningsingeniør, en beskæftigelse, hvortil man hidtil havde benyttet bl.a. ingeniørofficerer. I 1903 kom den sidste af de traditionelle fire ingeniørretninger, elektroingeniør. Ved kongelig anordning af 1933 blev titlen civilingeniør, der tidligere kun havde været brugt om bygningsingeniører, forbeholdt som fællesbetegnelse for kandidaterne fra DTU.
+  }
+  
+  \vspace{1mm}
+  \scaletext{Kilde: \url{https://denstoredanske.lex.dk/ingeni\%C3\%B8r}}
+\end{frame}
+
+\subsection{Kompetencer}
+\begin{frame}[fragile]
+  \frametitle{Kompetencer}
+  \vspace{-3mm}
+%  En ingeniør fra SDU har:
+  \begin{itemize}
+    \pause
+    \item Faglige kompetencer
+    \pause
+    \item Generelle kompetencer
+      \begin{itemize}
+        \pause
+        \item Arbejde selvstændigt:
+          \begin{itemize}
+            \item Planlægge strategier for egen læring
+            \item Evaluere egen læring
+            \item Fordybe sig fagligt
+            \item Formulere og analysere et problem på en struktureret måde
+          \end{itemize}
+        \pause
+        \item Samarbejde:
+          \begin{itemize}
+            \item Arbejde tværfagligt og sammen med personer med anden faglig og kulturel
+baggrund
+            \item Dokumentere og formidle sin viden og sine resultater såvel
+mundtligt som skriftligt til forskellige målgrupper
+            \item Evaluere andres arbejde og give feedback
+            \item Arbejde projektorienteret og i teams
+          \end{itemize}
+        \pause
+        \item Bringe sin viden, færdighed og kompetencer i praktisk anvendelse og være \ldots
+          \begin{itemize}
+            \item åben overfor nye problemstillinger og løsninger
+            \item innovativ, kreativ og løsningsorienteret
+          \end{itemize}
+      \end{itemize}
+    \pause
+    \item Kompetencer vedrørende:
+      \begin{itemize}
+        \item Internationalisering
+        \item Virksomhedssamarbejde
+        \item Innovation og entreprenørskab
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Hvordan opnås kompetencerne?}
+\begin{frame}[fragile]
+  \frametitle{Hvordan opnås kompetencerne?}
+  
+  \begin{tikzpicture}[remember picture, overlay]
+    \newcommand{\size}[0]{25mm}
+    
+    \tikzstyle{edge}  = [
+      very thick,
+      >=stealth,
+      draw=black,
+    ]
+    
+    \node[circle, anchor=north east, minimum size=2*\size, draw, very thick] (big) at ([xshift=-12mm, yshift=-17mm] current page.north east) {};
+    \node[circle, minimum size=1.6cm, draw, very thick] (student) at (big) {\small{Student}};
+    \node[circle, minimum size=1.6cm, draw, fill=white, very thick] (subject) at (big.north) {\small{Subject}};
+    \node[circle, minimum size=1.6cm, draw, fill=white, very thick] (team) at ([xshift=-\size*0.81418097053, yshift=-\size*0.58061118421] big) {\small{Team}};
+    \node[circle, minimum size=1.6cm, draw, fill=white, very thick] (project) at ([xshift=\size*0.81418097053, yshift=-\size*0.58061118421] big) {\small{Project}};
+    \draw[<->, edge] (student) -- (subject);
+    \draw[<->, edge] (student) -- (team);
+    \draw[<->, edge] (student) -- (project);
+  \end{tikzpicture}
+  
+  \vspace{0mm}
+  \begin{itemize}
+    \pause
+    \item DSMI (udtales \quoted{dæsmi})
+      \begin{itemize}
+        \item Den Syddanske Model for Ingeniøruddannelser
+      \end{itemize}
+    \pause
+    \item Sammenhængende tematiske semestre
+      \begin{itemize}
+        \item De første fire semestre på ingeniøruddannelserne
+          \begin{itemize}
+            \item Sammenhængende og tematiserede
+            \item Tværfagligt semesterprojekt, der har semester-\\temaet som overskrift
+            \item Projektarbejdet en særlig stærk rolle
+          \end{itemize}
+        \item De første to semestre er næsten fælles for\\Software Engineering og Software Teknologi
+          \begin{enumerate}
+            \item Udvikling af Software Programmer
+            \item Udvikling af Software Systemer / Udvikling af Cyber-Physical Software Systemer
+          \end{enumerate}
+        \item Hvert semester tilrettelægges af et semesterteam (undervisere og projektvejledere)
+      \end{itemize}
+    \pause
+    \item Aktiverende undervisning og aktiv læring i timeblokke (typisk med fire timer)
+  \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Software Engineering
 \section{Software Engineering}
 \begin{frame}
     \vspace{25mm}
     \begin{center}
-        \Huge{Part 2:\\Software Engineering}
+        \Huge{Part 3:\\Software Engineering}
     \end{center}
 \end{frame}
 
@@ -587,7 +725,7 @@
 \begin{frame}
     \vspace{25mm}
     \begin{center}
-        \Huge{Part 3:\\Software Teknologi}
+        \Huge{Part 4:\\Software Teknologi}
     \end{center}
 \end{frame}
 
