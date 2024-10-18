@@ -2,10 +2,22 @@
 
 ## Introduktion
 
-Velkommen til en rejse igennem programmeringssproget Elixir's landskab.
+Da du allerede har styr på mindst ét sprog har vi en betydelig mængde viden der er *transferable*. Det vil vi prøve at udnytte.
 
-Hvis du aldrig har prøvet at programmere før bør du starte [her](newbie.livemd).
+<!-- livebook:{"break_markdown":true} -->
 
-```elixir
+Dette trins opave er:
 
-```
+1. Check dette repositorie ud (eller download filerne): [https://github.com/aslakjohansen/livebook-demos](https://github.com/aslakjohansen/livebook-demos)
+2. Åben `index.livemd` i Livebook.
+3. Evaluér den sidste celle. Dette giver dig en oversigt over de demoer der er tilgængelige i repositoriet.
+4. Klik dig igennem følgende demoer:
+   1. Basic data types
+   2. Control structures
+   3. Pattern matching
+   4. Pipelines
+   5. Primitive concurrency
+
+<!-- livebook:{"break_markdown":true} -->
+
+Når du er færdig får du til næste øvelse.
