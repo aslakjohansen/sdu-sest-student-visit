@@ -1,0 +1,11 @@
+# Advanced
+
+## Introduktion
+
+Velkommen til en rejse igennem programmeringssproget Elixir's landskab.
+
+Hvis du aldrig har prøvet at programmere før bør du starte [her](newbie.livemd).
+
+```elixir
+
+```

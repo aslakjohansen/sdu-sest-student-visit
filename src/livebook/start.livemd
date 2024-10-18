@@ -1,0 +1,21 @@
+# Start
+
+## Introduktion
+
+Velkommen til en rejse igennem programmeringssproget Elixir's landskab.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Først skal vi lige konfigurere Livebook:
+
+1. Åben hovedsiden i en ny tab. Det kan gøres via Livebook logoet øverst til venstre.
+2. Klik i denne tab på `Settings` i menyen til vestre.
+3. Under `Code editor` skal `Render ligatures` slås til.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Herefter skal du vælge én af tre sværhedsgrader:
+
+1. Hvis du aldrig har programmeret før starter du [her](beginner.livemd).
+2. Hvis du føler at du har lidt erfaring med at programmere men godt vil have lidt støttehjul til et sprog du ikke har set før, så starter du [her](intermediate.livemd).
+3. Hvis du føler at du har godt styr på mindst ét programmeringssprog, så starter du [her](advanced.livemd).
