@@ -1,8 +1,6 @@
 # Beginner 2
 
-## Introduktion
-
-Da du ikke har prøvet at programmere før tager vi det stille og roligt.
+## Forberedelse
 
 ## Øvelse
 
