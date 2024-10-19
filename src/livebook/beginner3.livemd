@@ -2,8 +2,62 @@
 
 ## Forberedelse
 
+Vi har før set tupler. Dette er en datastruktur der kan holde et bestemt antal elementer. Vi kan udtrække et element fra en tuple ved pattern match eller ved brug at `elem` funktionen:
+
+```elixir
+elem({0, 1, 2, 3}, 2)
+```
+
+**Bemærk:** `elem` er ikke en anonym funktion og derfor skal vi ikke bruge et punktum når vi kalder den.
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Lister
+
+<!-- livebook:{"break_markdown":true} -->
+
+Tuples er gode til at holde et kendt antal forskellige værdier. Men ofte ønsker vi at den kode vi skriver kan arbejde med et vilkårligt antal værdier. Det bruger vi en liste til:
+
+```elixir
+l = [0, 1, 2, 3, 4]
+```
+
+Vi kan bruge pattern matching til at navngive (med variable) listens hovede (dét første element, på engelsk *head*) og listens hale (de resterende elementer, på engelsk *tail*). Dette vil vise sig at være meget brugbart når vi senere skal gennemløbe en liste og gøre noget med hvert element. Pattern matching mod en liste ser således ud (og kan godt kombineres med eksempelvis pattern matching af en tupel):
+
+```elixir
+[h|t] = l
+```
+
+```elixir
+{h, t}
+```
+
+I den sidste celle kontruerer vi en tupel hvor det første element er værdien af variablen `h` og det sidste element er værdien af variablen `t`.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Vi har også mulighed for at bruge `at` funktionen i `Enum` modulet til at indeksere ind i `l`. Her skal det bemærkes at det første element er element $0$. Det ser således ud:
+
+```elixir
+Enum.at(l, 3)
+```
+
+### Højereordensfunktioner
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Pipelining
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Moduler med Funktioner
+
 ## Øvelse
 
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse.
+
+```elixir
+
+```
