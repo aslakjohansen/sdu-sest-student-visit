@@ -89,6 +89,14 @@ Plot disse data:
 
 ```
 
+Hold nu musen over den sidste `Vl.encode_field` linje indtil du ser en popup. Heri finder du et `View on Hexdocs` link. Åben dette link i en ny tab og find ud af hvordan man kan definere en tittel for en akse.
+
+Lav en kopi af forrige celle herunder, og opdater denne med navne for de to akser.
+
+```elixir
+
+```
+
 ## Næste trin ...
 
 En af ovenstående celler så sådan her ud:
