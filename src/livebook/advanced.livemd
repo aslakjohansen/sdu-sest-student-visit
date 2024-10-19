@@ -1,4 +1,11 @@
-# Advanced
+# Advanced 1
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.10"},
+  {:kino_vega_lite, "~> 0.1.13"}
+])
+```
 
 ## Introduktion
 
@@ -18,6 +25,84 @@ Dette trins opave er:
    4. Pipelines
    5. Primitive concurrency
 
-<!-- livebook:{"break_markdown":true} -->
+## Øvelse
+
+Dette moduls øvelser tager udgangspunkt i følgende to definitioner:
+
+```elixir
+defmodule Circle do
+  defstruct [:x, :y, :r]
+end
+```
+
+```elixir
+circles = [
+  %Circle{x: 0, y: 0, r: 1.0},
+  %Circle{x: 3, y: 3, r: 2},
+  %Circle{x: -2, y: -1.5, r: 1.2},
+  %Circle{x: 1.2, y: -3.2, r: 0.3},
+  %Circle{x: -3.7, y: 4.7, r: 1.7},
+  %Circle{x: -6.13, y: -4.93, r: 2.3},
+  %Circle{x: -5.54, y: 5.31, r: 2.1},
+  %Circle{x: 7.3, y: -4.3, r: 3.5},
+]
+```
+
+**Øvelse 1:** Skriv noget kode i cellen herunder der på baggrund af definitionen af `circles` variablen fra ovenstående celle udregner summen af arealerne af disse cirkler.
+
+Arealet af en cirkel med radius $r$ er:
+
+$
+A(r) = \pi r^2
+$
+
+```elixir
+
+```
+
+**Øvelse 2:** Skriv en funktion der tager en radius $r_{in}$ som input og returnerer en radius $r_{out}$ hvorom det gælder, at $A(r_{out}) = 2 \cdot A(r_{in})$.
+
+```elixir
+
+```
+
+**Øvelse 3:** Skriv noget kode der på baggrund af ovenstående liste af cirkler fordobler disse cirklers areal og gemmer resultatet tilbage i samme variabel.
+
+```elixir
+
+```
+
+**Øvelse 4:** Skriv noget kode der på baggrund af samme variabel udregner den største distance mellem to cirkler.
+
+Distancen $D$ mellem punktet $P_1 : (x_1, y_1)$ og $P_2 : (x_2, y_2)$ kan udregnes med [Pythagoras](https://en.wikipedia.org/wiki/Pythagorean_theorem):
+
+$
+D = \sqrt{(x_2-x_1)^2 + (x_2-x_1)^2}
+$
+
+```elixir
+
+```
+
+**Øvelse 5:** Nu skal disse cirkler plottes. Jeg har skrevet noget kode der kan plotte data, men dette kode kan ikke finde ud af at bruge en liste af structs. I stedet skal den have en liste af maps hvor alle keys er strenge. Din opgave er derfor at konvertere de data der ligger i `circles` til dette format og at gemme resultatet i en variabel der hedder `data`.
+
+```elixir
+
+```
+
+```elixir
+alias VegaLite, as: Vl
+```
+
+```elixir
+Vl.new(width: 400, height: 300)
+|> Vl.data_from_values(data)
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "x", type: :quantitative)
+|> Vl.encode_field(:y, "y", type: :quantitative)
+|> Vl.encode_field(:size, "r", type: :nominal, title: "Radius")
+```
+
+## Næste trin ...
 
 Når du er færdig får du til næste øvelse.
