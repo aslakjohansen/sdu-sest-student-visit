@@ -1,4 +1,4 @@
-# Beginner
+# Beginner 1
 
 ## Introduktion
 
@@ -91,6 +91,32 @@ Her skulle du gerne se en advarsel om at Elixir ikke kender til variablen `_y`. 
 
 ## Øvelse
 
+En cirkel har en diameter på $30.9$ (når vi programmerer bruger vi engelsk notation med punktum som kommatalsseparator):
+
+```elixir
+d = 30.9
+```
+
+Med udgangspunkt i variablen `d`, udregn radius (ved at dividere med to) og gem resultatet i en variabel `r`:
+
+```elixir
+
+```
+
+En cirkel med radius $r$ har omkredsen $2 \pi r$. Prøv at udregne omkredsen af en cirkel denne radius i cellen herunder:
+
+```elixir
+
+```
+
+Til højre for `➤ Evaluate` knappen er der en drop-down meny. I denne er der en mulighed for automatisk at evaluere cellen når indholdet af den forrige celle har ændret sig.
+
+Du skal nu:
+
+1. Sørge for at de 2 forrige Elixir celler er sat til automatisk at evaluere.
+2. Ændre definitionen af `d` i cellen herover til at have værdien `:math.pi`.
+3. Observere resultatet af den forrige celle.
+
 ## Næste trin ...
 
-Når du er færdig går du til næste øvelse.
+Godt, nu har vi været *basics* igennem. Lad os gå videre til næste øvelse [her](beginner2.livemd).
