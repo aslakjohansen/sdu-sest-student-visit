@@ -19,6 +19,19 @@ Dette trins opave er:
 
 Denne øvelse tager udgangspunkt i [Fibonacci sekvensen](https://en.wikipedia.org/wiki/Fibonacci_sequence). Dette er en sekvens af tal der er defineret ved:
 
+$
+fib(n) =
+  \begin{cases}
+
+```
+0, & \text{\color{violet} for n=0} \\
+n, & \text{\color{violet} for n=1} \\
+fib(n-1)+fib(n-2), & \text{\color{violet} for n>1} \\
+```
+
+\end{cases}
+$
+
 Denne sekvens viser sig ofte i naturen, og nogle har brugt den i deres [musik](https://www.youtube.com/watch?v=Y7JG63IuaWs).
 
 Her er en implementation der kan udregne det $n$'te tal i sekvensen:
@@ -29,7 +42,7 @@ defmodule Fibonacci do
   
   def index(1), do: 1
   
-  def index(n) when is_integer(n) and n>0 do
+  def index(n) when is_integer(n) and n>1 do
     index(n-1) + index(n-2)
   end
 end
