@@ -108,6 +108,24 @@ Der er helt utroligt hyppigt hyppigt at man ser sådan en kæde af funktionskald
 
 ### Moduler med Funktioner
 
+<!-- livebook:{"break_markdown":true} -->
+
+Men hvordan er disse højereordensfunktioner lavet?
+
+```elixir
+defmodule MyEnum do
+  def map([], _fun), do: []
+  def map([h|t], fun) do
+    [fun.(h) | map(t, fun)]
+  end
+end
+```
+
+```elixir
+[12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
+|> MyEnum.map(fn element -> element + 1 end)
+```
+
 ## Øvelse
 
 ## Næste trin ...
