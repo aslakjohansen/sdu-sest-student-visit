@@ -36,6 +36,12 @@ I den sidste celle kontruerer vi en tupel hvor det første element er værdien a
 
 <!-- livebook:{"break_markdown":true} -->
 
+Vi kan også benytte syntaksen fra højre side af et pattern match til at ptte et nyt hovede på en liste:
+
+```elixir
+[-1|l]
+```
+
 Vi har også mulighed for at bruge `at` funktionen i `Enum` modulet til at indeksere ind i `l`. Her skal det bemærkes at det første element er element $0$. Det ser således ud:
 
 ```elixir
