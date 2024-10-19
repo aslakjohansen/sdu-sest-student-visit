@@ -13,7 +13,8 @@ Dette trins opave er:
 
 1. Åben igen `index.livemd` (fra [https://github.com/aslakjohansen/livebook-demos](https://github.com/aslakjohansen/livebook-demos)) i Livebook, og evaluér den sidste celle om nødvendigt.
 2. Klik dig igennem følgende demoer:
-   1. Primitive concurrency
+   1. Generic servers, registries and supervision
+   2. Dining Philosophers
 
 ## Øvelse
 
