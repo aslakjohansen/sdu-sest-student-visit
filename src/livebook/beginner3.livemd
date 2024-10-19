@@ -112,6 +112,12 @@ Der er helt utroligt hyppigt hyppigt at man ser sådan en kæde af funktionskald
 
 Men hvordan er disse højereordensfunktioner lavet?
 
+Navngivne funktioner kan placeres i moduler. I næste celle ses et modul der implementerer `map` funktionen. Teknisk set er der to funktionserklæringer, men Elixir benytter pattern matching til at afgøre hvilken erklæring der skal kaldes. Hvis den første erklæring matcher, så er det denne der bliver kaldt. Hvis ikke checkes den næste.
+
+I dette tilfælde håndterer den første erklæring den tomme streng, og den anden håndtere alle tilfælde hvor input ikke er en tom streng. Den anden erklæring bliver ved med at klippe hovedet af strengen af indtil den er tom.
+
+Implementationen udnytter at en funktions input værdier kan være funktioner til at sende en funktion med rundt. Denne kaldes til at *transformere* hvert hovede til et nyt hovede der nærmest *sys* ind i en ny liste som løbende konstrueres. Det fungere lidt som en lynlås.
+
 ```elixir
 defmodule MyEnum do
   def map([], _fun), do: []
@@ -120,6 +126,8 @@ defmodule MyEnum do
   end
 end
 ```
+
+Og den virker præcist som den `map` funktion der er defineret i `Enum`:
 
 ```elixir
 [12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
