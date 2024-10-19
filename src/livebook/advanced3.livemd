@@ -1,0 +1,24 @@
+# Advanced 3
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.10"},
+  {:kino_vega_lite, "~> 0.1.13"}
+])
+```
+
+## Forberedelse
+
+Dette trins opave er:
+
+1. Åben igen `index.livemd` (fra [https://github.com/aslakjohansen/livebook-demos](https://github.com/aslakjohansen/livebook-demos)) i Livebook, og evaluér den sidste celle om nødvendigt.
+2. Klik dig igennem følgende demoer:
+   1. Primitive concurrency
+
+## Øvelse
+
+Denne øvelse tager udgangspunkt i [Fibonacci sekvensen](https://en.wikipedia.org/wiki/Fibonacci_sequence). Dette er en sekvens af tal der er defineret ved:
+
+## Næste trin ...
+
+Når du er færdig går du til næste øvelse.

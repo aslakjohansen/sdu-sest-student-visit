@@ -95,4 +95,4 @@ Concurrent.map(ns, &Fibonacci.index/1)
 
 ## Næste trin ...
 
-Når du er færdig får du til næste øvelse.
+Når du er færdig går du til næste øvelse [her](advanced3.livemd).
