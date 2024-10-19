@@ -46,9 +46,65 @@ Enum.at(l, 3)
 
 <!-- livebook:{"break_markdown":true} -->
 
+Med Elixir kommer en række meget anvendelige *højereordensfunktioner*. Vi skal i dag se på tre af dem fra `Enum` modulet:
+
+* `map` Udfører en funktion på samtlige elementer i en liste og resulterer en tilsvarende liste af returværdier.
+* `filter` Konstruerer en liste af alle de elementer fra en input liste hvor et udtryk (i form af en funktion) evaluerer til sand.
+* `reduce` Gennemløber en liste og udfører en funktion på en initiel værdi og listens første værdi. Derefter returværdien af dette funktionskald og den næste værdi. Derefter returværdien af dette funktionskald og den næste værdi. Og så videre ... indtil vi er nået til den sidste returværdi, som returneres.
+
+Men lad os se lidt eksempler:
+
+<!-- livebook:{"break_markdown":true} -->
+
+Først definerer vi en liste med en række heltallige værdier:
+
+```elixir
+l1 = [12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
+```
+
+Nu kan vi bruge `map` til at lægge 1 til samtlige elementer af listen:
+
+```elixir
+l2 = Enum.map(l1, fn element -> element + 1 end)
+```
+
+Derefter kan vi fjerne alle elementer der ikke er negative (≥ skrives som `>=`):
+
+```elixir
+l3 = Enum.filter(l2, fn element -> element >= 0 end)
+```
+
+Slutteligt kan vi udregne summen:
+
+```elixir
+Enum.reduce(l3, 0, fn element, acc -> element + acc end)
+```
+
 ### Pipelining
 
 <!-- livebook:{"break_markdown":true} -->
+
+Dette kode kan også skrives som:
+
+```elixir
+Enum.reduce(
+  Enum.filter(
+    Enum.map(
+      [12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8],
+      fn element -> element + 1 end),
+    fn element -> element >= 0 end),
+  0,
+  fn element, acc -> element + acc end)
+```
+
+Der er helt utroligt hyppigt hyppigt at man ser sådan en kæde af funktionskald hvor output af én funktion bruges som input til den næste. For at gøre dette *mønster* lettere at læste har man indført noget syntaks for at *pipe* output fra én funktion ind som første element i den næste. Dette gøres ved hjælp af `|>` operatoren (som bliver tegnes som wen højrepil). Det ser således ud:
+
+```elixir
+[12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
+|> Enum.map(fn element -> element + 1 end)
+|> Enum.filter(fn element -> element >= 0 end)
+|> Enum.reduce(0, fn element, acc -> element + acc end)
+```
 
 ### Moduler med Funktioner
 
