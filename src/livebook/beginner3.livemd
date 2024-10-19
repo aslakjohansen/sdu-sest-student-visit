@@ -144,8 +144,4 @@ Og den virker præcist som den `map` funktion der er defineret i `Enum`:
 
 ## Næste trin ...
 
-Når du er færdig går du til næste øvelse.
-
-```elixir
-
-```
+Når du er færdig går du til næste øvelse [her](beginner4.livemd).
