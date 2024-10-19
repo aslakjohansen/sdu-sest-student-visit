@@ -1,0 +1,85 @@
+# Advanced 2
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.10"},
+  {:kino_vega_lite, "~> 0.1.13"}
+])
+```
+
+## Forberedelse
+
+Dette trins opave er:
+
+1. Åben igen `index.livemd` (fra [https://github.com/aslakjohansen/livebook-demos](https://github.com/aslakjohansen/livebook-demos)) i Livebook, og evaluér den sidste celle om nødvendigt.
+2. Klik dig igennem følgende demoer:
+   1. Primitive concurrency
+
+## Øvelse
+
+Denne øvelse tager udgangspunkt i [Fibonacci sekvensen](https://en.wikipedia.org/wiki/Fibonacci_sequence). Dette er en sekvens af tal der er defineret ved:
+
+Denne sekvens viser sig ofte i naturen, og nogle har brugt den i deres [musik](https://www.youtube.com/watch?v=Y7JG63IuaWs).
+
+Her er en implementation der kan udregne det $n$'te tal i sekvensen:
+
+```elixir
+defmodule Fibonacci do
+  def index(0), do: 0
+  
+  def index(1), do: 1
+  
+  def index(n) when is_integer(n) and n>0 do
+    index(n-1) + index(n-2)
+  end
+end
+```
+
+De første 40 Fibonacci tal er:
+
+```elixir
+0..39 |> Enum.map(&Fibonacci.index/1)
+```
+
+Øvelsen er, for 1000 værdier for $n$, at finde de matchende tal i fibonacci sekvensen. Her har vi de 1000 værdier for $n$:
+
+```elixir
+ns =
+  1..1_000
+  |> Enum.map(fn _ -> Enum.random(1..39) end)
+```
+
+Den naive løsning er at udregne dette sekventielt med følgende kode:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+Enum.map(ns, &Fibonacci.index/1)
+```
+
+Denne løsning vil dog kun udnytte én af din maskines processor kerner. Ved at formulere en løsning *concurrently* vil vi kunne udnytte de kerner vi måtte have. Det er din opgave implementere en sådan løsning ved at benytte fork-join teknikken fra den *notebook* du klikkede dig igennem i øverst på denne side.
+
+Du kan med fordel bygge videre på følgende kode:
+
+```elixir
+defmodule Concurrent do
+  def map(elements, fun) do
+    # fork
+    res = Enum.map(elements, fn element -> process(element, fun) end)
+
+    # join
+  end
+
+  defp process(element, fun) do
+    fun.(element)
+  end
+end
+```
+
+```elixir
+Concurrent.map(ns, &Fibonacci.index/1)
+```
+
+## Næste trin ...
+
+Når du er færdig får du til næste øvelse.

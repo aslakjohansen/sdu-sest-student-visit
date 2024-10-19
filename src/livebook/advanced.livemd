@@ -11,7 +11,7 @@ Mix.install([
 
 Da du allerede har styr på mindst ét sprog har vi en betydelig mængde viden der er *transferable*. Det vil vi prøve at udnytte.
 
-<!-- livebook:{"break_markdown":true} -->
+## Forberedelse
 
 Dette trins opave er:
 
