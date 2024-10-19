@@ -2,10 +2,95 @@
 
 ## Introduktion
 
-Velkommen til en rejse igennem programmeringssproget Elixir's landskab.
+Da du ikke har prøvet at programmere før tager vi det stille og roligt.
 
-Hvis du aldrig har prøvet at programmere før bør du starte [her](newbie.livemd).
+<!-- livebook:{"break_markdown":true} -->
+
+Livebook er et interaktivt udviklingsmiljø der tilgås igennem en browser. Man arbejder i notebooks, der fysisk gemmes på den computer der hoster Livebook. Hvis en sådan notebook er assicieret med et filnavn så gemmes den automatisk. Du kan sørge for dette ved at klikke på diskette/gem ikonet i nederste højre hjørne.
+
+En notebook er struktureret i sektioner, og indenfor sådan en sektion kan man placere celler med eksempelvis [markdown kode](https://www.markdownguide.org/cheat-sheet/) (som dette) eller Elixir kode. Når musen flyttes imellem to celler præsenteres man for muligheder for at tilføje en celle. Når musen flyttes over en eksisterende celle præsenteres muligheder for at interagere med denne celle. Eksempelvis kan en Elixir celle afvikles ved at trykke på `➤ Evaluate` over cellen til venstre.
+
+## Forberedelse
+
+Al gyldig Elixir kode evaluerer til en værdi. Her er lidt simple eksempler:
 
 ```elixir
-
+"Hello, World"
 ```
+
+```elixir
+42
+```
+
+```elixir
+1+2
+```
+
+```elixir
+:math.pi
+```
+
+Data kan struktureres i tupler:
+
+```elixir
+{1,2}
+```
+
+```elixir
+{1,2,3}
+```
+
+```elixir
+{"a", 1}
+```
+
+```elixir
+{1,{2,3}}
+```
+
+Elixir har en match operator `=` der forsøger at forbinde det der står på den venstre side med det der står på den højre side. Dette bruges typisk til to forskellige ting:
+
+1. At checke at noget er overholdt. Eksempelvis at en værdi har en specifik struktur. Her bruger man et underscore tegn `_` til at markere ting man ikke har behov til at kunne referere til.
+2. At binde variabelnavne til dele af en struktur. Dette betyder at et navn (som vi senere kan referere til), bliver associeret med en værdi.
+
+Lidt eksempler:
+
+```elixir
+pi = :math.pi
+```
+
+```elixir
+pi
+```
+
+```elixir
+t = {1, 2}
+```
+
+```elixir
+{42, {tx, _}} = {42, t}
+```
+
+```elixir
+tx
+```
+
+```elixir
+{x, _y} = t
+```
+
+```elixir
+x
+```
+
+```elixir
+_y
+```
+
+Her skulle du gerne se en advarsel om at Elixir ikke kender til variablen `_y`. Dette er fordi den starter med en underscore og derfor ikke blev bundet på linjen hvor x blev bundet.
+
+## Øvelse
+
+## Næste trin ...
+
+Når du er færdig går du til næste øvelse.
