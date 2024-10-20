@@ -142,6 +142,34 @@ end
 
 Prøv at scroll op til cellen hvor variablen `r` er defineret. Justér værdien for denne variable til -3 og evaluér den efterfølgende celle. Hvad sker der?
 
+<!-- livebook:{"break_markdown":true} -->
+
+Vi er til en fødselsdagsfest med nogle deltagere:
+
+```elixir
+participant_count = 13
+```
+
+Der er blevet lavet en lagkage. Det er lettest at skære lagkager ud hvis den skal fordeles på et lige antal tallerkener. Med udgangspunkt i variablen `participant_count`, tildel variablen `easy` en sandhedsværdi der reræsenterer om det er let at skære lakagen ud.
+
+**Bemærk:** Funktionen `rem` returnerer resten af en division. `rem(value, 2)` returner derfor $1$ hvis `value` er ulige.
+
+```elixir
+
+```
+
+Brug en `if` konstruktion til enten at printe "Det er let" eller "Det er sværk" ud fra værdien af variablen `easy`:
+
+```elixir
+
+```
+
+Gør det samme med en `case` konstruktion:
+
+```elixir
+
+```
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse [her](beginner3.livemd).
