@@ -159,6 +159,39 @@ Map.new(l)
 
 ## Øvelse
 
+Lad os tage et helt tilfældigt år som udgangspunkt:
+
+```elixir
+year = 2024
+```
+
+Reglerne om [skudår](https://en.wikipedia.org/wiki/Leap_year) siger, at
+
+*"This extra leap day occurs in each year that is a multiple of 4, except for years evenly divisible by 100 but not by 400"*
+
+Lav nu en erklæring af variablen `leap_year?` der afhænger af værdien af variablen `year` og er sand hvis der skal insættes en ekstra dag i Februar.
+
+```elixir
+
+```
+
+Opret i følgende kode celle et modul der hedder `Calendar`.
+
+I dette modul laver du:
+
+* en funktion der hedder `generate_month_lengths` som tager et år som parameter, og på baggrund af dette år producere et map for dette år.
+* en funktion der hedder `generate` som tager to parametre: `min_year` og `max_year`. Den gennemløber alle årene i mellem disse (inklusiv begge), og for hvert år kalder den `generate_month_lengths`. Resultatet af dette funktionskald bruges til at konstruere et map sådan at man først kan slå et år op og få resultatet af kaldet til `generate_month_lengths`. Dette map fra måned til årskalender returneres.
+
+Anvend i den efterfølgende kode celle funktionen `generate` til at producere en kalender for årene 0 til 3000.
+
+```elixir
+
+```
+
+```elixir
+
+```
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse.
