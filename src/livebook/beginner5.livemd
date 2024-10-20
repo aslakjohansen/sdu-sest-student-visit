@@ -94,6 +94,31 @@ month_lengths = %{
 
 <!-- livebook:{"break_markdown":true} -->
 
+Et ofte anvendt specialtilfælde er når alle nøglerne er atomer:
+
+```elixir
+month_lengths = %{
+  jan: 31,
+  feb: 28 + if leap_year do 1 else 0 end,
+  mar: 31,
+  apr: 30,
+  maj: 31,
+  jun: 30,
+  jul: 31,
+  aug: 31,
+  sep: 30,
+  okt: 31,
+  nov: 30,
+  dec: 31,
+}
+```
+
+Da kan vi tilgå de enkelte nøglers værdier med `.` operatoren:
+
+```elixir
+month_lengths.okt
+```
+
 ### Til og fra lister
 
 ## Øvelse
