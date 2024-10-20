@@ -46,9 +46,41 @@ Disse udtryk kan kombineres:
 looser = not (first or best)
 ```
 
-### Konstruktionen if-do-else
+### Konstruktionerne if-do-else og if
 
 <!-- livebook:{"break_markdown":true} -->
+
+Lad os tage udgangspunkt i en cirkel:
+
+```elixir
+r = 12
+```
+
+Radius kan være negativ, nul eller positiv. Vi har ofte et behov for at håndtere flere af disse situationer på forskellige måder. Det kan vi eksempelvis gøre med en `if` konstruktion:
+
+```elixir
+{:success, area} =
+  if r<0 do
+    {:error, :negative_radius}
+  else
+    {:success, :math.pi * r*r}
+  end
+```
+
+Noter:
+
+* Navne der starter med et kolon er det der kaldes [atomer](https://hexdocs.pm/elixir/1.12/Atom.html). Deres rolle er at være lig sig selv og intet andet. Man kunne have erstattet dem med et unikt heltal, men fordi vi som mennesker kan lægge en fortolkning i navnet er dette lettere at læse.
+* Her bruger vi pattern matching til -- i tilfælde af en success -- at binde variablen `area` til resultatet af regnestykket. Hvis matchet fejler får vi en `MatchError`. Indtil videre er det fint med os. Elixir har mekanismer til at håndtere dette.
+
+<!-- livebook:{"break_markdown":true} -->
+
+En anden variant af `if` konstruktionen mangler `else` delen. Den gør således kun noget hvis sandhedsværdien evaluerer til `true`. Dette benytter man ofte til at printe noget ud på skærmen:
+
+```elixir
+if area > 180 do
+  IO.puts("That's a big circle!")
+end
+```
 
 ### Konstruktionen switch
 
