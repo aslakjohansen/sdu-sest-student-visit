@@ -6,6 +6,46 @@
 
 <!-- livebook:{"break_markdown":true} -->
 
+Vi har sandhedsværdier (aka [boolske](https://en.wikipedia.org/wiki/Boolean_algebra) værdier):
+
+```elixir
+true
+```
+
+```elixir
+false
+```
+
+En sammenligning skaber en sandhedsværdi:
+
+```elixir
+page_count = 108
+long_book = page_count > 100
+```
+
+Der er særlige operatorer til at regne med dem:
+
+```elixir
+reached_top = true
+first = false
+winner = reached_top and first
+```
+
+```elixir
+best = true
+winner = first or best
+```
+
+```elixir
+looser = not winner
+```
+
+Disse udtryk kan kombineres:
+
+```elixir
+looser = not (first or best)
+```
+
 ### Konstruktionen if-do-else
 
 <!-- livebook:{"break_markdown":true} -->
