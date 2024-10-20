@@ -142,6 +142,12 @@ Og den virker præcist som den `map` funktion der er defineret i `Enum`:
 
 ## Øvelse
 
+Lav i følgende celle en kopi af indholdet af cellen med definitionen af `MyEnum`. Tilføj og implementer en udgave af `filter` funktionen ved siden af den allerede eksisterende `map` funktion:
+
+```elixir
+
+```
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse [her](beginner5.livemd).
