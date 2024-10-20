@@ -86,6 +86,36 @@ end
 
 <!-- livebook:{"break_markdown":true} -->
 
+En tekststreng (eller bare *streng*) er grundlæggende en sekvens af bogstaver. Vi vil ofte printe den ud ved hjælp af `IO.puts`. Det ser sådan her ud:
+
+```elixir
+IO.puts("Hello, World")
+```
+
+Tekststrenge kan lægges sammen:
+
+```elixir
+"Hello"<>", World"
+```
+
+Men vi kan også komponere dem ud fra eksistere navne og udtryk:
+
+```elixir
+"En cirkel med radius #{r} har arealet #{:math.pi * r*r}!"
+```
+
+Nogle gange ønsker man at lave strenge på flere linjer. Det gøres bedst således:
+
+```elixir
+s =
+  """
+  En cirkel med radius #{r} har ...
+  - Arealet #{:math.pi * r*r}, og
+  - Omkredsen #{2 * :math.pi * r}
+  """
+IO.puts(s)
+```
+
 ### Konstruktionen switch
 
 ## Øvelse
