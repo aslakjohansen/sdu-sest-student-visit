@@ -12,6 +12,10 @@ En notebook er struktureret i sektioner, og indenfor sådan en sektion kan man p
 
 ## Forberedelse
 
+### Værdier og expressions
+
+<!-- livebook:{"break_markdown":true} -->
+
 Al gyldig Elixir kode evaluerer til en værdi. Her er lidt simple eksempler:
 
 ```elixir
@@ -30,6 +34,10 @@ Al gyldig Elixir kode evaluerer til en værdi. Her er lidt simple eksempler:
 :math.pi
 ```
 
+### Tupler
+
+<!-- livebook:{"break_markdown":true} -->
+
 Data kan struktureres i tupler:
 
 ```elixir
@@ -47,6 +55,10 @@ Data kan struktureres i tupler:
 ```elixir
 {1,{2,3}}
 ```
+
+### Pattern matching
+
+<!-- livebook:{"break_markdown":true} -->
 
 Elixir har en match operator `=` der forsøger at forbinde det der står på den venstre side med det der står på den højre side. Dette bruges typisk til to forskellige ting:
 
