@@ -121,6 +121,42 @@ month_lengths.okt
 
 ### Til og fra lister
 
+<!-- livebook:{"break_markdown":true} -->
+
+Maps kan håndteres som lister:
+
+```elixir
+month_lengths
+|> Enum.map(fn {key, value} -> "#{key} har værdien #{value}" end)
+```
+
+Her er hvert element der håndteres af den anonyme funtion en tuple, og det pattern matches der på.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Det kan vi udnytte til at gå den anden vej:
+
+```elixir
+l = [
+  {"jan", 31},
+  {"feb", 28 + if leap_year do 1 else 0 end},
+  {"mar", 31},
+  {"apr", 30},
+  {"maj", 31},
+  {"jun", 30},
+  {"jul", 31},
+  {"aug", 31},
+  {"sep", 30},
+  {"okt", 31},
+  {"nov", 30},
+  {"dec", 31},
+]
+```
+
+```elixir
+Map.new(l)
+```
+
 ## Øvelse
 
 ## Næste trin ...
