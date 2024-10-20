@@ -82,6 +82,10 @@ if area > 180 do
 end
 ```
 
+### Tekststrenge
+
+<!-- livebook:{"break_markdown":true} -->
+
 ### Konstruktionen switch
 
 ## Øvelse
