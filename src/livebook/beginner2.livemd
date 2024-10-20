@@ -140,6 +140,8 @@ end
 
 ## Øvelse
 
+Prøv at scroll op til cellen hvor variablen `r` er defineret. Justér værdien for denne variable til -3 og evaluér den efterfølgende celle. Hvad sker der?
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse [her](beginner3.livemd).
