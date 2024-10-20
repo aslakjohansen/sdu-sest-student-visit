@@ -2,11 +2,91 @@
 
 ## Forberedelse
 
-Maps
+Et map er en datastruktur der associerer hvert element fra én mængde af værdier med netop én element i en anden mængde af værdier. Den første mængde er vores nøgler (en: keys) og den anden er disse nøglers værdier (en: values).
 
 <!-- livebook:{"break_markdown":true} -->
 
 ### Arbitrære nøgler
+
+<!-- livebook:{"break_markdown":true} -->
+
+Lad os prøve at bruge et map til at repræsentere forholdet mellem forkortelser på måneder og disse måneders længder:
+
+```elixir
+leap_year = false
+month_lengths = %{
+  "jan" => 31,
+  "feb" => 28 + if leap_year do 1 else 0 end,
+  "mar" => 31,
+  "apr" => 30,
+  "maj" => 31,
+  "jun" => 30,
+  "jul" => 31,
+  "aug" => 31,
+  "sep" => 30,
+  "okt" => 31,
+  "nov" => 30,
+  "dec" => 31,
+}
+```
+
+Vi kan nu med `Map.get` funktionen slå en vilkårlig måneds længde op:
+
+```elixir
+"Oktober er #{Map.get(month_lengths, "okt")} dage lang"
+```
+
+En variant af denne funktion kan gives en default værdi som kommer i spil hvis nøglen ikke findes:
+
+```elixir
+"October er #{Map.get(month_lengths, "oct", "<ukendt>")} dage lang"
+```
+
+Vi kan tilføje en association:
+
+```elixir
+month_lengths = Map.put(month_lengths, "oct", 31)
+"October er #{Map.get(month_lengths, "oct", "<ukendt>")} dage lang"
+```
+
+Vi kan spørge om en nøgle eksisterer i vores map:
+
+```elixir
+Map.has_key?(month_lengths, "oct")
+```
+
+I ovenstående har vi brugt strene som keys, men det kunne være hvad som helst. Det kunne eksempelvis være tuples:
+
+```elixir
+month_lengths = %{
+  {:da, "jan"} => 31,
+  {:da, "feb"} => 28 + if leap_year do 1 else 0 end,
+  {:da, "mar"} => 31,
+  {:da, "apr"} => 30,
+  {:da, "maj"} => 31,
+  {:da, "jun"} => 30,
+  {:da, "jul"} => 31,
+  {:da, "aug"} => 31,
+  {:da, "sep"} => 30,
+  {:da, "okt"} => 31,
+  {:da, "nov"} => 30,
+  {:da, "dec"} => 31,
+  {:en, "jan"} => 31,
+  {:en, "feb"} => 28 + if leap_year do 1 else 0 end,
+  {:en, "mar"} => 31,
+  {:en, "apr"} => 30,
+  {:en, "may"} => 31,
+  {:en, "jun"} => 30,
+  {:en, "jul"} => 31,
+  {:en, "aug"} => 31,
+  {:en, "sep"} => 30,
+  {:en, "oct"} => 31,
+  {:en, "nov"} => 30,
+  {:en, "dec"} => 31,
+}
+```
+
+**Bemærk:** Det kunne faktisk være en kombination.
 
 <!-- livebook:{"break_markdown":true} -->
 
