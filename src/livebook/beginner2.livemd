@@ -2,6 +2,10 @@
 
 ## Forberedelse
 
+### Boolske udtryk
+
+<!-- livebook:{"break_markdown":true} -->
+
 ### Konstruktionen if-do-else
 
 <!-- livebook:{"break_markdown":true} -->
