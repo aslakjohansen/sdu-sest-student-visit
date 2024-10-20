@@ -194,4 +194,4 @@ Anvend i den efterfølgende kode celle funktionen `generate` til at producere en
 
 ## Næste trin ...
 
-Når du er færdig går du til næste øvelse.
+Når du er færdig går du til næste øvelse [her](beginner6.livemd).

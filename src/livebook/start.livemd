@@ -37,6 +37,8 @@ Funktioner`"];
 Lister, højereordensfunktioner, pipelining og moduler`"];
   Beginner5["`**Begynder 5:**
 Maps`"];
+  Beginner6["`**Begynder 6:**
+Farver`"];
   
   Advanced1["`**Avanceret 1:**
 Cirkler`"];
@@ -45,6 +47,6 @@ Fibonacci sekvensen`"];
   Advanced3["`**Avanceret 3:**
 Primitiv concurrency`"];
   
-  Start-->Beginner1-->Beginner2-->Beginner3-->Beginner4-->Beginner5-->Advanced1;
+  Start-->Beginner1-->Beginner2-->Beginner3-->Beginner4-->Beginner5-->Beginner6-->Advanced1;
   Start-->Advanced1-->Advanced2-->Advanced3;
 ```
