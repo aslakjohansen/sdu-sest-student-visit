@@ -4,6 +4,18 @@
 
 Maps
 
+<!-- livebook:{"break_markdown":true} -->
+
+### Arbitrære nøgler
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Atomer som nøgler
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Til og fra lister
+
 ## Øvelse
 
 ## Næste trin ...
