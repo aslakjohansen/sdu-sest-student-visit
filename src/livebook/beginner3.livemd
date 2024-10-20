@@ -1,147 +1,112 @@
 # Beginner 3
 
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.10"},
+  {:kino_vega_lite, "~> 0.1.13"}
+])
+```
+
 ## Forberedelse
 
-Vi har før set tupler. Dette er en datastruktur der kan holde et bestemt antal elementer. Vi kan udtrække et element fra en tuple ved pattern match eller ved brug at `elem` funktionen:
+På denne side skal vi arbejde med anonyme funktioner. En funktion er et stykke kode der tager nul eller flere input og levere et output.
+
+Følgende funktion tager netop ét input og leverer dette som sit output:
 
 ```elixir
-elem({0, 1, 2, 3}, 2)
+fn input -> input end
 ```
 
-**Bemærk:** `elem` er ikke en anonym funktion og derfor skal vi ikke bruge et punktum når vi kalder den.
+**Bemærk:** Elixir fortæller os at denne ene linje evaluerer til en funktion. Lad os prøve at sætte en variabel lig med denne funktion:
+
+```elixir
+pipethrough = fn input -> input end
+```
+
+Herefter kan vi prøve at kalde den med en værdi:
+
+```elixir
+pipethrough.(42)
+```
+
+Og ganske rigtigt: Input blev til output
 
 <!-- livebook:{"break_markdown":true} -->
 
-### Lister
-
-<!-- livebook:{"break_markdown":true} -->
-
-Tuples er gode til at holde et kendt antal forskellige værdier. Men ofte ønsker vi at den kode vi skriver kan arbejde med et vilkårligt antal værdier. Det bruger vi en liste til:
+Vi kan også definere en funktion der repræsenterer den matematiske funktion $f(x) = 1.2x^2-1.3x+0.9$:
 
 ```elixir
-l = [0, 1, 2, 3, 4]
+f = fn x -> 1.2*x*x - 1.3*x + 0.9 end
 ```
 
-Vi kan bruge pattern matching til at navngive (med variable) listens hovede (dét første element, på engelsk *head*) og listens hale (de resterende elementer, på engelsk *tail*). Dette vil vise sig at være meget brugbart når vi senere skal gennemløbe en liste og gøre noget med hvert element. Pattern matching mod en liste ser således ud (og kan godt kombineres med eksempelvis pattern matching af en tupel):
+Nu kan vi eksempelvis udregne $f(10)$:
 
 ```elixir
-[h|t] = l
+f.(10)
 ```
 
+Vi kan nu tage en sekvens af $x$-værdier og udregne de matchende $f(x)$-værdier, og konvertere hver matchende kombination som et map (jeg forventer ikke at du forstår denne kode):
+
 ```elixir
-{h, t}
+data =
+  -10..10
+  |> Enum.map(fn x -> %{"x" => x, "f(x)" => f.(x)} end)
 ```
 
-I den sidste celle kontruerer vi en tupel hvor det første element er værdien af variablen `h` og det sidste element er værdien af variablen `t`.
-
-<!-- livebook:{"break_markdown":true} -->
-
-Vi kan også benytte syntaksen fra højre side af et pattern match til at ptte et nyt hovede på en liste:
+Vi kan bruge VegaLite til at plotte disse data. Af bekvemmelighedsgrunde lægger vi ud med at lave et `Vl` alias så vi ikke behøver at skrive `VegaLite` hele tiden:
 
 ```elixir
-[-1|l]
+alias VegaLite, as: Vl
 ```
 
-Vi har også mulighed for at bruge `at` funktionen i `Enum` modulet til at indeksere ind i `l`. Her skal det bemærkes at det første element er element $0$. Det ser således ud:
+Derefter kan vi plotte:
 
 ```elixir
-Enum.at(l, 3)
-```
-
-### Højereordensfunktioner
-
-<!-- livebook:{"break_markdown":true} -->
-
-Med Elixir kommer en række meget anvendelige *højereordensfunktioner*. Vi skal i dag se på tre af dem fra `Enum` modulet:
-
-* `map` Udfører en funktion på samtlige elementer i en liste og resulterer en tilsvarende liste af returværdier.
-* `filter` Konstruerer en liste af alle de elementer fra en input liste hvor et udtryk (i form af en funktion) evaluerer til sand.
-* `reduce` Gennemløber en liste og udfører en funktion på en initiel værdi og listens første værdi. Derefter returværdien af dette funktionskald og den næste værdi. Derefter returværdien af dette funktionskald og den næste værdi. Og så videre ... indtil vi er nået til den sidste returværdi, som returneres.
-
-Men lad os se lidt eksempler:
-
-<!-- livebook:{"break_markdown":true} -->
-
-Først definerer vi en liste med en række heltallige værdier:
-
-```elixir
-l1 = [12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
-```
-
-Nu kan vi bruge `map` til at lægge 1 til samtlige elementer af listen:
-
-```elixir
-l2 = Enum.map(l1, fn element -> element + 1 end)
-```
-
-Derefter kan vi fjerne alle elementer der ikke er negative (≥ skrives som `>=`):
-
-```elixir
-l3 = Enum.filter(l2, fn element -> element >= 0 end)
-```
-
-Slutteligt kan vi udregne summen:
-
-```elixir
-Enum.reduce(l3, 0, fn element, acc -> element + acc end)
-```
-
-### Pipelining
-
-<!-- livebook:{"break_markdown":true} -->
-
-Dette kode kan også skrives som:
-
-```elixir
-Enum.reduce(
-  Enum.filter(
-    Enum.map(
-      [12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8],
-      fn element -> element + 1 end),
-    fn element -> element >= 0 end),
-  0,
-  fn element, acc -> element + acc end)
-```
-
-Der er helt utroligt hyppigt hyppigt at man ser sådan en kæde af funktionskald hvor output af én funktion bruges som input til den næste. For at gøre dette *mønster* lettere at læste har man indført noget syntaks for at *pipe* output fra én funktion ind som første element i den næste. Dette gøres ved hjælp af `|>` operatoren (som bliver tegnes som wen højrepil). Det ser således ud:
-
-```elixir
-[12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
-|> Enum.map(fn element -> element + 1 end)
-|> Enum.filter(fn element -> element >= 0 end)
-|> Enum.reduce(0, fn element, acc -> element + acc end)
-```
-
-### Moduler med Funktioner
-
-<!-- livebook:{"break_markdown":true} -->
-
-Men hvordan er disse højereordensfunktioner lavet?
-
-Navngivne funktioner kan placeres i moduler. I næste celle ses et modul der implementerer `map` funktionen. Teknisk set er der to funktionserklæringer, men Elixir benytter pattern matching til at afgøre hvilken erklæring der skal kaldes. Hvis den første erklæring matcher, så er det denne der bliver kaldt. Hvis ikke checkes den næste.
-
-I dette tilfælde håndterer den første erklæring den tomme streng, og den anden håndtere alle tilfælde hvor input ikke er en tom streng. Den anden erklæring bliver ved med at klippe hovedet af strengen af indtil den er tom.
-
-Implementationen udnytter at en funktions input værdier kan være funktioner til at sende en funktion med rundt. Denne kaldes til at *transformere* hvert hovede til et nyt hovede der nærmest *sys* ind i en ny liste som løbende konstrueres. Det fungere lidt som en lynlås.
-
-```elixir
-defmodule MyEnum do
-  def map([], _fun), do: []
-  def map([h|t], fun) do
-    [fun.(h) | map(t, fun)]
-  end
-end
-```
-
-Og den virker præcist som den `map` funktion der er defineret i `Enum`:
-
-```elixir
-[12, -3, -14, -2, 1, 6, 7, -4, 16, 5, 3, -7, 0, 0, 2, -1, 8]
-|> MyEnum.map(fn element -> element + 1 end)
+Vl.new(width: 400, height: 300)
+|> Vl.data_from_values(data)
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "x", type: :quantitative)
+|> Vl.encode_field(:y, "f(x)", type: :quantitative)
 ```
 
 ## Øvelse
 
+Implementer en `circumference` funktion, der givet en radius på en cirkel udregner denne cirkels omkreds:
+
+```elixir
+
+```
+
+Vælg en mindste og en største interessante radius, og producér et dataset i variablen `data_circumference` som er klar til at blive plottet:
+
+```elixir
+
+```
+
+Plot disse data:
+
+```elixir
+
+```
+
+Hold nu musen over den sidste `Vl.encode_field` linje indtil du ser en popup. Heri finder du et `View on Hexdocs` link. Åben dette link i en ny tab og find ud af hvordan man kan definere en tittel for en akse.
+
+Lav en kopi af forrige celle herunder, og opdater denne med navne for de to akser.
+
+```elixir
+
+```
+
 ## Næste trin ...
 
-Når du er færdig går du til næste øvelse [her](beginner4.livemd).
+En af ovenstående celler så sådan her ud:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+data =
+  -10..10
+  |> Enum.map(fn x -> %{"x" => x, "f(x)" => f.(x)} end)
+```
+
+Hvad betyder det egentligt? Det finder vi ud af [her](beginner4.livemd).
