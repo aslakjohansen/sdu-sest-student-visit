@@ -1,0 +1,15 @@
+# Beginner 2
+
+## Forberedelse
+
+### Konstruktionen if-do-else
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Konstruktionen switch
+
+## Øvelse
+
+## Næste trin ...
+
+Når du er færdig går du til næste øvelse [her](beginner3.livemd).
