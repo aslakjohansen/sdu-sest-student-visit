@@ -116,7 +116,27 @@ s =
 IO.puts(s)
 ```
 
-### Konstruktionen switch
+### Konstruktionen case
+
+<!-- livebook:{"break_markdown":true} -->
+
+En `if` konstruktion har maksimalt to udfald, og valget imellem disse foretages på baggrund af en boolsk værdi. Det kan godt være ret begrænsende.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Det hyppigst benyttede alternativ er `case` konstruktionen, hvor én værdi sammenlignes med en række mønstre:
+
+```elixir
+result = {:error, {:reason, "incompetence"}}
+
+case result do
+  {:error, :paper_jam} -> {:result, "printer is jamming"}
+  {:error, {:code, 12}} -> {:result, "house on fire"}
+  {:error, {:reason, reason}} -> {:result, "error due to reason '#{reason}'"}
+  {:success, value} -> {:result, "succeeded with value #{value}"}
+  _ -> {:result, "This matches anything"}
+end
+```
 
 ## Øvelse
 
