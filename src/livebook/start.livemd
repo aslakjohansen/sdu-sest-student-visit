@@ -22,6 +22,10 @@ Herefter skal du vælge én af tre sværhedsgrader:
 
 <!-- livebook:{"break_markdown":true} -->
 
+Dette valg sender jer igennem følgende materiale:
+
+<!-- livebook:{"break_markdown":true} -->
+
 <!-- Learn more at https://mermaid-js.github.io/mermaid -->
 
 ```mermaid
