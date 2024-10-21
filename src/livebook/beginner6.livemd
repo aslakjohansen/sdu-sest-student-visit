@@ -8,6 +8,12 @@ Mix.install([
 
 ## Forberedelse
 
+### Grænseflade
+
+<!-- livebook:{"break_markdown":true} -->
+
+Lad os først definere nogle slidere, der kan bruges til at vælge tre værdier mellem 0 og 255 (begge inklusive). Vi arrangerer disse i et "grid". Dette skal vi bruge til at udpege en farve ved hjælp af dennes rød, grøn og blå komponenter:
+
 ```elixir
 kinos = [
   Kino.Input.range("Rød", min: 0, max: 255),
@@ -17,10 +23,21 @@ kinos = [
 Kino.Layout.grid(kinos)
 ```
 
+Nu opretter vi en "frame". Dette er et sted hvor man kan placere forskellie elementer.
+
 ```elixir
 frame = Kino.Frame.new() |> Kino.render()
 nil
 ```
+
+### Bagvedliggende logik
+
+<!-- livebook:{"break_markdown":true} -->
+
+Følgende modul implementerer en [GenServer](https://hexdocs.pm/elixir/GenServer.html) til at modtage opdateringer om justeringer på hver af de tre farvekanaler (en: channel). En GenServer er en separat proces (inde i Elixir) som man kan starte, og derefter sende beskeder til. Når den modtager en sådan besked behandler den beskeden og derefter kan den eventuelt sende en besked tilbage. Her sørger vi for at tegne en firkant i ovenstående frame. To kommentarer i koden indikere at der er to typer funktioner:
+
+1. **Interface funktioner:** Interface funktionerne er dem man kalder fra den proces man står i. Dette vil starte en GenServer eller sende en besked til en (forhåbentligt allerede) startet GenServer.
+2. **Callback funktioner:** Når en GenServer modtager sådan en besked, vil en matchende callback funktion blive kaldt (i denne GenServer's proces).
 
 ```elixir
 defmodule Color do
@@ -70,9 +87,15 @@ defmodule Color do
 end
 ```
 
+Når vi nu har defineret hvad vores `Color` GenServer er, kan vi starte den. Går denne handling godt vil det resultere i en proces id (aka, en `pid`). Dette er hvad vi skal bruge til at udpege den nye `Color` process (vi kan nemlig godt have flere).
+
+Det ser sådan her ud:
+
 ```elixir
 {:ok, pid} = Color.start_link(frame)
 ```
+
+Slutteligt skal vi hooke os på de events som vores slidere genererer når vi justerer dem. Det gør vi med `Kino.listen`. Funktionen `trunc` runder sit input ned til nærmeste heltal og konverterer typen til heltal.
 
 ```elixir
 [kino_r, kino_g, kino_b] = kinos
