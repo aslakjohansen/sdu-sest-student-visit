@@ -118,4 +118,4 @@ Scroll nu til de tre slidere (for rød, grøn og blå), og prøv at træk i dem.
 
 ## Næste trin ...
 
-Når du er færdig går du til næste øvelse.
+Når du er færdig går du til næste øvelse [her](advanced.livemd).
