@@ -17,7 +17,7 @@ Først skal vi lige konfigurere Livebook:
 Herefter skal du vælge én af tre sværhedsgrader:
 
 1. **Beginner:** Hvis du aldrig har programmeret før starter du [her](beginner.livemd).
-2. **Intermediate:** Hvis du føler at du har lidt erfaring med at programmere men godt vil have lidt støttehjul til et sprog du ikke har set før, så starter du [her](intermediate.livemd).
+2. **Intermediate:** Hvis du føler at du har lidt erfaring med at programmere men godt vil have lidt støttehjul til et sprog du ikke har set før, så skal du beslutte om du hopper på [begynder sporet](beginner.livemd) eller det [avancerede spor](intermediate.livemd).
 3. **Advanced:** Hvis du føler at du har godt styr på mindst ét programmeringssprog, så starter du [her](advanced.livemd).
 
 <!-- livebook:{"break_markdown":true} -->
