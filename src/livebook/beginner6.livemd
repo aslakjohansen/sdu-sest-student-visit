@@ -127,6 +127,10 @@ Lav nu en ny frame. Du kan eventuelt arrangere de to frames i et grid. Start en 
 1. Det bliver sendt til den første `Color` pid som før.
 2. Det bliver også sendt til den anden `Color` pid, men her skal værdien trækkes fra $255$. Hvis den oprindelige værdi er $100$, skal der således sendes $255-100=155$ til denne pid.
 
+<!-- livebook:{"break_markdown":true} -->
+
+Hvis du har styr på din farvelære kan du også lave en tredje frame som viser komplimentærfarven, men det er en del mere kompliceret og her skal du definere en separat GenServer.
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse [her](advanced.livemd).
