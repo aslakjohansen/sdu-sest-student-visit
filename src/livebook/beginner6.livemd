@@ -1,6 +1,89 @@
 # Beginner 6
 
+```elixir
+Mix.install([
+  {:kino, "~> 0.14.1"}
+])
+```
+
 ## Forberedelse
+
+```elixir
+kinos = [
+  Kino.Input.range("Rød", min: 0, max: 255),
+  Kino.Input.range("Grøn", min: 0, max: 255),
+  Kino.Input.range("Blå", min: 0, max: 255),
+]
+Kino.Layout.grid(kinos)
+```
+
+```elixir
+frame = Kino.Frame.new() |> Kino.render()
+nil
+```
+
+```elixir
+defmodule Color do
+  use GenServer
+
+  @dim 64
+
+  # interface
+
+  def start_link(widget) do
+    color = %{r: 0, g: 0, b: 0}
+    GenServer.start_link(__MODULE__, {widget, color})
+  end
+
+  def update(pid, channel, value) do
+    GenServer.cast(pid, {:update, channel, value})
+  end
+
+  # callbacks
+
+  @impl true
+  def init({widget,_}=state) do
+    Kino.Frame.render(widget, generate_svg(0, 0, 0))
+    {:ok, state}
+  end
+
+  @impl true
+  def handle_cast({:update, channel, value}, {widget, c} = _state) when is_atom(channel) do
+    c = Map.put(c, channel, value)
+    %{r: r, g: g, b: b} = c
+    
+    Kino.Frame.render(widget, generate_svg(r, g, b))
+    {:noreply, {widget, c}}
+  end
+
+  # helpers
+
+  defp generate_svg(r,g,b) do
+    """
+    <svg viewBox="0 0 #{@dim} #{@dim}" xmlns="http://www.w3.org/2000/svg">
+      <rect width="#{@dim}" height="#{@dim}" x="0" y="0"
+            style="fill:rgb(#{r},#{g},#{b})" />
+    </svg>
+    """
+    |> Kino.Image.new(:svg)
+  end
+end
+```
+
+```elixir
+{:ok, pid} = Color.start_link(frame)
+```
+
+```elixir
+[kino_r, kino_g, kino_b] = kinos
+
+[{:r, kino_r}, {:g, kino_g}, {:b, kino_b}]
+|> Enum.map(
+  fn {channel, kino} ->
+    Kino.listen(kino, fn event -> Color.update(pid, channel, trunc(event.value)) end)
+  end
+)
+```
 
 ## Øvelse
 
