@@ -116,6 +116,17 @@ Prøv at scrolle op til toppen af denne notebook, og klik på `Notebook dependen
 
 Scroll nu til de tre slidere (for rød, grøn og blå), og prøv at træk i dem. Hos mig skal man give slip før handlingen registreres. Hvad sker der med kassen nedenfor?
 
+<!-- livebook:{"break_markdown":true} -->
+
+Prøv at klik dig igennem de forskellige celler for at få en forståelse for hvad der foregår.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Lav nu en ny frame. Du kan eventuelt arrangere de to frames i et grid. Start en ny `Color` GenServer og bind en variabel til dens pid. Udvid nu koden for at håndtere events, sådan at hvert event forårsager to thing:
+
+1. Det bliver sendt til den første `Color` pid som før.
+2. Det bliver også sendt til den anden `Color` pid, men her skal værdien trækkes fra $255$. Hvis den oprindelige værdi er $100$, skal der således sendes $255-100=155$ til denne pid.
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse [her](advanced.livemd).
