@@ -87,6 +87,8 @@ end
 
 ## Øvelse
 
+Prøv at scrolle op til toppen af denne notebook, og klik på `Notebook dependencies and setup`. Hvad du ser er en særlig celle hvor man kan tilføje pakker. Lige over denne celle ude til højre er der en `Add package (sp)` knap. Her kan man søge efter allerede eksisterende pakker som man kan bygge ovenpå. I dette tilfælde har vi valgt at installere pakken `kino` der giver adgang til en række brugergrænseflade elementer bag ved namespacet `Kino`.
+
 ## Næste trin ...
 
 Når du er færdig går du til næste øvelse.
