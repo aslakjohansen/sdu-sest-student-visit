@@ -1,5 +1,53 @@
+\newcommand{\componentA}{0.88}
+\newcommand{\componentB}{0.96}
+\newcommand{\componentC}{0.997}
+
+\definecolor{intro}{rgb}{\componentA, \componentC, \componentB}
+\definecolor{sdu}{rgb}{  \componentA, \componentB, \componentC}
+\definecolor{se}{rgb}{   \componentB, \componentC, \componentA}
+\definecolor{st}{rgb}{   \componentB, \componentA, \componentC}
+
+\newcommand{\bgcolor}{Purple} % this should be renewed below
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% args: 1:prefix 2:semester 3:index_west 4:index_east 5:title 6:ects 7:style
+\newcommand{\entry}[7]{
+  \node[
+    rectangle,
+    draw=purple,
+    anchor=south west,
+    align=center,
+    minimum height=\cellheight,
+    minimum width=(#4-#3)*\cellwidth+((#4-#3)-1)*\cellspacing,
+    #7
+  ]
+  (#1) at (
+    [
+      xshift=\xoffset+#3*\cellwidth+(#3-1)*\cellspacing,
+      yshift=\yoffset+(#2-1)*\cellheight+(#2-2)*\cellspacing,
+    ] semorigo)
+  {
+    #5\\\textcolor{orange}{#6 ECTS}
+  }
+}
+
+\newcommand{\entryNormal}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{}}
+\newcommand{\entryProject}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{fill=purple!10,}}
+\newcommand{\entryElective}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{pattern=north east lines, pattern color=purple!10, even odd rule,}}
+\newcommand{\entryNormalMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue}}
+\newcommand{\entryProjectMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue,fill=blue!10,}}
+\newcommand{\entryElectiveMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue,pattern=north east lines, pattern color=blue!10, even odd rule,}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduktion
+
+% background color pre
+{
+\setbeamercolor{background canvas}{bg=intro}
+\renewcommand{\bgcolor}{intro}
+
 \section{Introduktion}
 \begin{frame}
     \vspace{25mm}
@@ -283,8 +331,17 @@
   \end{itemize}
 \end{frame}
 
+% background color post
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Den Syddanske Ingeniør
+
+% background color pre
+{
+\setbeamercolor{background canvas}{bg=sdu}
+\renewcommand{\bgcolor}{sdu}
+
 \section{Den Syddanske Ingeniør}
 \begin{frame}
   \vspace{25mm}
@@ -421,8 +478,17 @@ mundtligt som skriftligt til forskellige målgrupper
   \end{itemize}
 \end{frame}
 
+% background color post
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Software Engineering
+
+% background color pre
+{
+\setbeamercolor{background canvas}{bg=se}
+\renewcommand{\bgcolor}{se}
+
 \section{Software Engineering}
 \begin{frame}
     \vspace{25mm}
@@ -457,34 +523,6 @@ mundtligt som skriftligt til forskellige målgrupper
     \descitem{Beslutningstagere} for at kommunikere hvordan en løsning vil passe ind i organisationen.
   \end{itemize}
 \end{frame}
-
-% args: 1:prefix 2:semester 3:index_west 4:index_east 5:title 6:ects 7:style
-\newcommand{\entry}[7]{
-  \node[
-    rectangle,
-    draw=purple,
-    anchor=south west,
-    align=center,
-    minimum height=\cellheight,
-    minimum width=(#4-#3)*\cellwidth+((#4-#3)-1)*\cellspacing,
-    #7
-  ]
-  (#1) at (
-    [
-      xshift=\xoffset+#3*\cellwidth+(#3-1)*\cellspacing,
-      yshift=\yoffset+(#2-1)*\cellheight+(#2-2)*\cellspacing,
-    ] semorigo)
-  {
-    #5\\\textcolor{orange}{#6 ECTS}
-  }
-}
-
-\newcommand{\entryNormal}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{}}
-\newcommand{\entryProject}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{fill=purple!10,}}
-\newcommand{\entryElective}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{pattern=north east lines, pattern color=purple!10, even odd rule,}}
-\newcommand{\entryNormalMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue}}
-\newcommand{\entryProjectMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue,fill=blue!10,}}
-\newcommand{\entryElectiveMsc}[6]{\entry{#1}{#2}{#3}{#4}{#5}{#6}{draw=blue,pattern=north east lines, pattern color=blue!10, even odd rule,}}
 
 \subsection{Studiets Opbygning}
 \begin{frame}[fragile]
@@ -719,8 +757,17 @@ mundtligt som skriftligt til forskellige målgrupper
   \textbf{Evaluering:} Rapport med mundtligt forsvar.
 \end{frame}
 
+% background color post
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Softwareteknologi
+
+% background color pre
+{
+\setbeamercolor{background canvas}{bg=st}
+\renewcommand{\bgcolor}{st}
+
 \section{Softwareteknologi}
 \begin{frame}
     \vspace{25mm}
@@ -894,6 +941,9 @@ mundtligt som skriftligt til forskellige målgrupper
   \vspace{5mm}
   \textbf{Evaluering:} Rapport med mundtligt forsvar.
 \end{frame}
+
+% background color post
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Questions
