@@ -27,7 +27,9 @@ Alle tre roller er implementeret som genservere, og de benytter et register hver
 ```
 
 ```elixir
-
+defmodule Baker do
+  
+end
 ```
 
 ```elixir
@@ -35,7 +37,9 @@ Alle tre roller er implementeret som genservere, og de benytter et register hver
 ```
 
 ```elixir
-
+defmodule Clerk do
+  
+end
 ```
 
 Det er din opgave at skrive koden for kasseassistenterne:
@@ -45,7 +49,35 @@ Det er din opgave at skrive koden for kasseassistenterne:
 ```
 
 ```elixir
+defmodule Customer do
+  
+end
+```
 
+Startop af genservers:
+
+```elixir
+{:ok, baker_1_pid} = Baker.start("Red Velvet Cheesecake", "John")
+{:ok, baker_2_pid} = Baker.start("Red Velvet Cheesecake", "Alberte")
+{:ok, baker_3_pid} = Baker.start("Red Velvet Cheesecake", "Sofie")
+{:ok, baker_4_pid} = Baker.start("Lemon Pie", "Freja")
+{:ok, baker_5_pid} = Baker.start("Lemon Pie", "Birger")
+{:ok, baker_6_pid} = Baker.start("Brownie", "Hans")
+{:ok, baker_7_pid} = Baker.start("Brownie", "Anders")
+{:ok, baker_8_pid} = Baker.start("Brownie", "Signe")
+bakers = [baker_1_pid, baker_2_pid, baker_3_pid, baker_4_pid, baker_5_pid, baker_6_pid,baker_7_pid, baker_8_pid]
+```
+
+```elixir
+clerks =
+  1..clerk_count
+  |> Enum.map(fn i -> Clerk.start(i) end)
+```
+
+```elixir
+customers =
+  1..customer_count
+  |> Enum.map(fn i -> Customer.start(i) end)
 ```
 
 ## Næste trin ...
