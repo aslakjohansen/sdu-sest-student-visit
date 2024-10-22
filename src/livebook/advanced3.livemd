@@ -18,7 +18,13 @@ Dette trins opave er:
 
 ## Øvelse
 
-Denne øvelse tager udgangspunkt i [Fibonacci sekvensen](https://en.wikipedia.org/wiki/Fibonacci_sequence). Dette er en sekvens af tal der er defineret ved:
+I denne øvelse skal vi lave en model af et bageri. Der er en række bagere, der er en række kasseassistenter og så er der nogle kunder der kommer igen og igen.
+
+Alle tre roller er implementeret som genservere, og de benytter et register hver. Jeg har skrevet koden for bagerne, og for kunderne:
+
+<!-- livebook:{"break_markdown":true} -->
+
+Det er din opgave at skrive koden for kasseassistenterne:
 
 ## Næste trin ...
 
