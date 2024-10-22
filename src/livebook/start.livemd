@@ -2,7 +2,10 @@
 
 ## Introduktion
 
-Velkommen til en rejse igennem programmeringssproget [Elixir](https://elixir-lang.org)'s landskab.
+Velkommen til en rejse igennem programmeringssproget [Elixir](https://elixir-lang.org)'s landskab. Elixir er et funktionsorienteret sprog der benytter actor modellen og er designet til kritiske produktionssystemer. Hvad betyder dette?
+
+* **Funktionsorienteret:** Dette er et programmeringsparadigme (en måde at tilgå programmeringsopgaver på). På SDUs software uddannelser (og det Danske arbejdsmarket) er det dét objektorienterede paradigme der dominerer.
+* **Actormodellen:** Dette er nok den model der gør det lettest at arbejde med samtidighed (en: concurrency) i software.
 
 <!-- livebook:{"break_markdown":true} -->
 
