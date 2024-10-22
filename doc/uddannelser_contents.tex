@@ -441,10 +441,10 @@ mundtligt som skriftligt til forskellige målgrupper
     ]
     
     \node[circle, anchor=north east, minimum size=2*\size, draw, very thick] (big) at ([xshift=-12mm, yshift=-17mm] current page.north east) {};
-    \node[circle, minimum size=1.6cm, draw, very thick] (student) at (big) {\small{Student}};
-    \node[circle, minimum size=1.6cm, draw, fill=white, very thick] (subject) at (big.north) {\small{Subject}};
-    \node[circle, minimum size=1.6cm, draw, fill=white, very thick] (team) at ([xshift=-\size*0.81418097053, yshift=-\size*0.58061118421] big) {\small{Team}};
-    \node[circle, minimum size=1.6cm, draw, fill=white, very thick] (project) at ([xshift=\size*0.81418097053, yshift=-\size*0.58061118421] big) {\small{Project}};
+    \node[circle, minimum size=1.6cm, draw, fill=\bgcolor!95!black, very thick] (student) at (big) {\small{Student}};
+    \node[circle, minimum size=1.6cm, draw, fill=\bgcolor!95!black, very thick] (subject) at (big.north) {\small{Subject}};
+    \node[circle, minimum size=1.6cm, draw, fill=\bgcolor!95!black, very thick] (team) at ([xshift=-\size*0.81418097053, yshift=-\size*0.58061118421] big) {\small{Team}};
+    \node[circle, minimum size=1.6cm, draw, fill=\bgcolor!95!black, very thick] (project) at ([xshift=\size*0.81418097053, yshift=-\size*0.58061118421] big) {\small{Project}};
     \draw[<->, edge] (student) -- (subject);
     \draw[<->, edge] (student) -- (team);
     \draw[<->, edge] (student) -- (project);
