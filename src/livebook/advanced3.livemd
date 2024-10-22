@@ -23,7 +23,7 @@ I denne øvelse skal vi lave en model af et bageri. Der er en række bagere, der
 Alle tre roller er implementeret som genservere, og de benytter et register hver. Jeg har skrevet koden for bagerne, og for kunderne:
 
 ```elixir
-
+{:ok, baker_registry_pid} = Registry.start_link(name: BakerRegistry, keys: :duplicate)
 ```
 
 ```elixir
@@ -33,7 +33,7 @@ end
 ```
 
 ```elixir
-
+{:ok, clerk_registry_pid} = Registry.start_link(name: ClerkRegistry, keys: :duplicate)
 ```
 
 ```elixir
@@ -45,7 +45,7 @@ end
 Det er din opgave at skrive koden for kasseassistenterne:
 
 ```elixir
-
+{:ok, customer_registry_pid} = Registry.start_link(name: CustomerRegistry, keys: :duplicate)
 ```
 
 ```elixir
