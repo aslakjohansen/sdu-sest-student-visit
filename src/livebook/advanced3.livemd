@@ -62,9 +62,9 @@ Startop af genservers:
 {:ok, baker_3_pid} = Baker.start("Red Velvet Cheesecake", "Sofie")
 {:ok, baker_4_pid} = Baker.start("Lemon Pie", "Freja")
 {:ok, baker_5_pid} = Baker.start("Lemon Pie", "Birger")
-{:ok, baker_6_pid} = Baker.start("Brownie", "Hans")
-{:ok, baker_7_pid} = Baker.start("Brownie", "Anders")
-{:ok, baker_8_pid} = Baker.start("Brownie", "Signe")
+{:ok, baker_6_pid} = Baker.start("Carrot Cake", "Hans")
+{:ok, baker_7_pid} = Baker.start("Carrot Cake", "Anders")
+{:ok, baker_8_pid} = Baker.start("Carrot Cake", "Signe")
 bakers = [baker_1_pid, baker_2_pid, baker_3_pid, baker_4_pid, baker_5_pid, baker_6_pid,baker_7_pid, baker_8_pid]
 ```
 
