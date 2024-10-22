@@ -9,7 +9,9 @@ Velkommen til en rejse igennem programmeringssproget [Elixir](https://elixir-lan
 
 <!-- livebook:{"break_markdown":true} -->
 
-Først skal vi lige konfigurere Livebook:
+Vi kommer til at arbejde med Elixir igennem [Livebook](https://livebook.dev). Der er andre måder at skrive Elixirkode (hvor man ikke benytter en browser), men denne har nogle attraktive muligheder med hensyn til at få et overblik over hvad der foregår og til at visualisere data.
+
+Først skal Livebook [installeres](https://livebook.dev/\#install), og dernæst skal den konfiureres:
 
 1. Åben hovedsiden i en ny tab. Det kan gøres via Livebook logoet øverst til venstre.
 2. Klik i denne tab på `Settings` i menyen til vestre.
