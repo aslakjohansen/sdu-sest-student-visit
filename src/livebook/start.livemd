@@ -2,7 +2,7 @@
 
 ## Introduktion
 
-Velkommen til en rejse igennem programmeringssproget Elixir's landskab.
+Velkommen til en rejse igennem programmeringssproget [Elixir](https://elixir-lang.org)'s landskab.
 
 <!-- livebook:{"break_markdown":true} -->
 
