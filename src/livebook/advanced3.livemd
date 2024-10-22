@@ -16,11 +16,11 @@ Dette trins opave er:
    1. Generic servers, registries and supervision
    2. Dining Philosophers
 
-## Øvelse
+## Udgangspunkt
 
-I denne øvelse skal vi lave en model af et bageri. Der er en række bagere, der er en række kasseassistenter og så er der nogle kunder der kommer igen og igen.
+I denne øvelse tager vi udgangspunkt i en kodebase der modelere et bageri. Der er en række bagere, der ved hvordan man bager netop ét produkt, og der er en række kunder der altid bestiller et specifikt produkt og bliver ved med at bestille dette.
 
-Alle tre roller er implementeret som genservere, og de benytter et register hver. Jeg har skrevet koden for bagerne, og for kunderne:
+Begge roller (bager og kunde) er implementeret som genservere, og de benytter et register hver:
 
 ```elixir
 {:ok, baker_registry_pid} = Registry.start_link(name: BakerRegistry, keys: :duplicate)
@@ -57,24 +57,12 @@ defmodule Baker do
   
   @impl true
   def handle_cast({:order, client}, [product: product, name: name] = state) do
-    :timer.sleep(1000) # TODO: random(800,1200)
+    :timer.sleep(Enum.random(1600..3200))
     GenServer.cast(client, {:cake, product, name})
     {:noreply, state}
   end
 end
 ```
-
-```elixir
-{:ok, clerk_registry_pid} = Registry.start_link(name: ClerkRegistry, keys: :duplicate)
-```
-
-```elixir
-defmodule Clerk do
-  
-end
-```
-
-Det er din opgave at skrive koden for kasseassistenterne:
 
 ```elixir
 {:ok, customer_registry_pid} = Registry.start_link(name: CustomerRegistry, keys: :duplicate)
@@ -107,7 +95,7 @@ defmodule Customer do
 end
 ```
 
-Startop af genservers:
+Lad os starte nogle bagere:
 
 ```elixir
 {:ok, baker_1_pid} = Baker.start("Red Velvet Cheesecake", "John")
@@ -121,19 +109,16 @@ Startop af genservers:
 bakers = [baker_1_pid, baker_2_pid, baker_3_pid, baker_4_pid, baker_5_pid, baker_6_pid, baker_7_pid, baker_8_pid]
 ```
 
-```elixir
-# clerks =
-#   1..clerk_count
-#   |> Enum.map(fn i -> Clerk.start(i) end)
-```
+Og nogle kunder:
 
 ```elixir
-["Red Velvet Cheesecake", "Lemon Pie", "Carrot Cake"]
-|> Enum.map(fn product ->
-    1..5
-    |> Enum.map(fn name -> Customer.start(product, name) end)
-  end)
+products = ["Red Velvet Cheesecake", "Lemon Pie", "Carrot Cake"]
+
+1..20
+|> Enum.map(fn name -> Customer.start(Enum.random(products), name) end)
 ```
+
+## Øvelse
 
 ## Næste trin ...
 
