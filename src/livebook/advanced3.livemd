@@ -22,9 +22,31 @@ I denne øvelse skal vi lave en model af et bageri. Der er en række bagere, der
 
 Alle tre roller er implementeret som genservere, og de benytter et register hver. Jeg har skrevet koden for bagerne, og for kunderne:
 
-<!-- livebook:{"break_markdown":true} -->
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
 
 Det er din opgave at skrive koden for kasseassistenterne:
+
+```elixir
+
+```
+
+```elixir
+
+```
 
 ## Næste trin ...
 
