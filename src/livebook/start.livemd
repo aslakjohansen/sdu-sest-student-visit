@@ -54,7 +54,7 @@ Cirkler`"];
   Advanced2["`**Avanceret 2:**
 Fibonacci sekvensen`"];
   Advanced3["`**Avanceret 3:**
-Primitiv concurrency`"];
+Concurrency`"];
   
   Start-->Beginner1-->Beginner2-->Beginner3-->Beginner4-->Beginner5-->Beginner6-->Advanced1;
   Start-->Advanced1-->Advanced2-->Advanced3;
