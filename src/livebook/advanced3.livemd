@@ -120,6 +120,42 @@ products = ["Red Velvet Cheesecake", "Lemon Pie", "Carrot Cake"]
 
 ## Øvelse
 
+Gå ovenstående kode igenne, og brug mouse-over tooltips til at finde forklaringer på de elementer du ikke forstår. Der er nok en del.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Vi vil nu gerne introducere en `Clerk` genserver. Denne skal repræsentere en salgsassistent som kunder kommunikerer med, og som så kommunikerer med bagerne. Det ser lidt sådan her ud:
+
+<!-- livebook:{"break_markdown":true} -->
+
+```mermaid
+graph LR;
+  Customer1-->Clerk1;
+  Customer1-->Clerk2;
+  Customer2-->Clerk1;
+  Customer2-->Clerk2;
+  Customer3-->Clerk1;
+  Customer3-->Clerk2;
+  Customer4-->Clerk1;
+  Customer4-->Clerk2;
+  Clerk1-->Baker1;
+  Clerk2-->Baker1;
+  Clerk1-->Baker2;
+  Clerk2-->Baker2;
+  Clerk1-->Baker3;
+  Clerk2-->Baker3;
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+En kunde skal kunne spørge en salsassistent hvilke produkter der er tilgængelige. Kunden vil derefter vælge et tilfældigt produkt blandt disse og bede sangsassistenten om dette. Salgsassistenten sætter da en bager til at producere dette produkt og sender det færsige produkt til kunden. Salgsassistenterne holder styr på hvor mange af hvert produkt der er blevet solgt. Dette bør ske i en separat genserver.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Øvensen er at foretage de nødvendige ændringer for at få den nye model til at fungere. Det er dog en del ændringer. Det vil derfor være en god strategi at vælge en overskuelig delmængde af denne funktionalitet og implementere den. Derefter kan du vælge en overskuelig delmængde af den resterende funktionalitet og så videre ...
+
+Husk at tage hyppige backups.
+
 ## Næste trin ...
 
-Når du er færdig går du til næste øvelse.
+Når du er færdig finder du selv på en øvelse.
