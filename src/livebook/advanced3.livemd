@@ -28,7 +28,39 @@ Alle tre roller er implementeret som genservere, og de benytter et register hver
 
 ```elixir
 defmodule Baker do
+  use GenServer
   
+  # (client) interface
+  
+  def start(product, name) do
+    GenServer.start(__MODULE__, [product: product, name: name])
+  end
+  
+  def order(product) do
+    case Registry.lookup(BakerRegistry, product) do
+      [] ->
+        {:error, "No provider for '#{product}'"}
+      workers ->
+        {pid, _} = Enum.random(workers)
+        GenServer.cast(pid, {:order, self()})
+        :ok
+    end
+  end
+  
+  # callbacks
+  
+  @impl true
+  def init([product: product, name: _] = state) do
+    Registry.register(BakerRegistry, product, _value = nil)
+    {:ok, state}
+  end
+  
+  @impl true
+  def handle_cast({:order, client}, [product: product, name: name] = state) do
+    :timer.sleep(1000) # TODO: random(800,1200)
+    GenServer.cast(client, {:cake, product, name})
+    {:noreply, state}
+  end
 end
 ```
 
@@ -50,7 +82,28 @@ Det er din opgave at skrive koden for kasseassistenterne:
 
 ```elixir
 defmodule Customer do
+  use GenServer
   
+  # (client) interface
+  
+  def start(product, name) do
+    GenServer.start(__MODULE__, [product: product, name: "Customer #{name}"])
+  end
+  
+  # callbacks
+  
+  @impl true
+  def init([product: product, name: _] = state) do
+    Baker.order(product)
+    {:ok, state}
+  end
+
+  @impl true
+  def handle_cast({:cake, product, name}, [product: p, name: n] = state) do
+    IO.puts("[#{n}] Got #{product} from #{name}: Yum! Lets have one more ...")
+    Baker.order(p)
+    {:noreply, state}
+  end
 end
 ```
 
@@ -65,19 +118,21 @@ Startop af genservers:
 {:ok, baker_6_pid} = Baker.start("Carrot Cake", "Hans")
 {:ok, baker_7_pid} = Baker.start("Carrot Cake", "Anders")
 {:ok, baker_8_pid} = Baker.start("Carrot Cake", "Signe")
-bakers = [baker_1_pid, baker_2_pid, baker_3_pid, baker_4_pid, baker_5_pid, baker_6_pid,baker_7_pid, baker_8_pid]
+bakers = [baker_1_pid, baker_2_pid, baker_3_pid, baker_4_pid, baker_5_pid, baker_6_pid, baker_7_pid, baker_8_pid]
 ```
 
 ```elixir
-clerks =
-  1..clerk_count
-  |> Enum.map(fn i -> Clerk.start(i) end)
+# clerks =
+#   1..clerk_count
+#   |> Enum.map(fn i -> Clerk.start(i) end)
 ```
 
 ```elixir
-customers =
-  1..customer_count
-  |> Enum.map(fn i -> Customer.start(i) end)
+["Red Velvet Cheesecake", "Lemon Pie", "Carrot Cake"]
+|> Enum.map(fn product ->
+    1..5
+    |> Enum.map(fn name -> Customer.start(product, name) end)
+  end)
 ```
 
 ## Næste trin ...
