@@ -59,6 +59,7 @@
 \subsection{Software Engineering vs Datalogi}
 \begin{frame}[fragile]
   \frametitle{Introduktion \subpart{Software Engineering vs Datalogi}}
+  \pause
   \vspace{-2mm}
   
   \scalebox{0.8}{
@@ -92,72 +93,72 @@
       ]
       
       % organization
-      \only<1->{
+      \only<2->{
         \node[label, anchor=north] (organization) at ([xshift=\ewidth/2] \xoffset,0) {\textbf{Organisation}};
       }
       
       % programming
-      \only<2->{
+      \only<3->{
         \node[node, anchor=center, minimum height=2.6cm,minimum width=\ewidth]
           (programming) at ({\xoffset+\ewidth/2}, -\height/2]) {\textbf{Programmering}};
       }
       
       % foundation
-      \only<3->{
+      \only<4->{
         \node[label, anchor=south] (foundation) at ([xshift=\ewidth/2] origo) {\textbf{Fundament}};
       }
       
       % CS boxes
-      \only<4->{
+      \only<5->{
         \node[node, anchor=north west]
           (compiler) at ([yshift=-2mm] programming.south west) {Kompiler};
         \draw[edge] (compiler.south) to [out=270,in=180] (foundation.west);
       }
-      \only<5->{
+      \only<6->{
         \node[node, anchor=north west]
           (os) at ([xshift=2mm] compiler.north east) {Styresystemer};
         \draw[edge] (os.south) to [out=270,in=90] ([xshift=-4mm] foundation.north);
       }
-      \only<6->{
+      \only<7->{
         \node[node, anchor=north west]
           (cpu) at ([xshift=2mm] os.north east) {CPU Arkitektur};
         \draw[edge] (cpu.south) to [out=270,in=90] ([xshift=4mm] foundation.north);
       }
-      \only<7->{
+      \only<8->{
         \node[node, anchor=north west]
           (dist) at ([xshift=2mm] cpu.north east) {Problemer Indenfor\\\scalebox{0.8}{Distribuerede Systemer}};
         \draw[edge] (dist.south) to [out=270,in=0] (foundation.east);
       }
       
       % SE boxes
-      \only<8->{
+      \only<9->{
         \node[node, anchor=south west]
           (pm) at ([yshift=2mm] programming.north west) {Project\\Management};
         \draw[edge] (pm.north) to [out=90,in=180] (organization.west);
       }
-      \only<9->{
+      \only<10->{
         \node[node, anchor=south west]
           (reqs) at ([xshift=2mm] pm.south east) {Requirement\\Analysis};
         \draw[edge] (reqs.north) to [out=90,in=270] ([xshift=-4mm] organization.south);
       }
-      \only<10->{
+      \only<11->{
         \node[node, anchor=south west]
           (devp) at ([xshift=2mm] reqs.south east) {Development\\Processes};
         \draw[edge] (devp.north) to [out=90,in=270] ([xshift=4mm] organization.south);
       }
-      \only<11->{
+      \only<12->{
         \node[node, anchor=south west]
           (business) at ([xshift=2mm] devp.south east) {Business\\Proposals};
         \draw[edge] (business.north) to [out=90,in=0] (organization.east);
       }
       
       % CS
-      \only<12->{
+      \only<13->{
         \draw[overlay,decorate,decoration={brace, mirror, amplitude=10pt, raise=5pt}] ([xshift=0mm] programming.north west) to node[black,midway,left=15pt] {\rotatebox{90}{Datalogi}} ([xshift=0mm] compiler.south west);
       }
       
       % SE
-      \only<13->{
+      \only<14->{
         \draw[overlay,decorate,decoration={brace, mirror, amplitude=10pt, raise=5pt}] ([xshift=0mm, yshift=2mm] dist.north east) to node[black,midway,right=15pt] {\rotatebox{90}{Software Engineering}} ([xshift=0mm] business.north east);
       }
     \end{tikzpicture}
