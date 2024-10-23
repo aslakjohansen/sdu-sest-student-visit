@@ -242,6 +242,7 @@
 \subsection{Software Engineering Processen}
 \begin{frame}[fragile]
   \frametitle{Introduktion \subpart{Software Engineering Processen}}
+  \pause
   \vspace{22mm}
   
   \scalebox{0.94}{
@@ -268,36 +269,36 @@
       ]
       
       % krav
-      \only<1->{
+      \only<2->{
         \node[node, anchor=north] (krav) at (origo) {Krav};
       }
       
       % ana
-      \only<2->{
+      \only<3->{
         \node[node, anchor=west] (ana) at ([xshift=\xspacing] krav.east) {Analyse};
         \draw[edge] (krav)--(ana);
       }
       
       % design
-      \only<3->{
+      \only<4->{
         \node[node, anchor=west] (design) at ([xshift=\xspacing] ana.east) {Design};
         \draw[edge] (ana)--(design);
       }
       
       % impl
-      \only<4->{
+      \only<5->{
         \node[node, anchor=west] (impl) at ([xshift=\xspacing] design.east) {Implementering};
         \draw[edge] (design)--(impl);
       }
       
       % eval
-      \only<5->{
+      \only<6->{
         \node[node, anchor=west] (eval) at ([xshift=\xspacing] impl.east) {Evaluering};
         \draw[edge] (impl)--(eval);
       }
       
       % iteration
-      \only<6->{
+      \only<7->{
         \draw[edge, dashed] (eval.south)
           |- ([yshift=-8mm] ana.south)
           -| (ana.south)
@@ -306,7 +307,7 @@
       }
       
       % ?
-      \only<7->{
+      \only<8->{
         \node[node, anchor=east, dashed] (question) at ([xshift=-\xspacing] krav.west) {?};
         \draw[edge, dashed] (question)--(krav);
       }
