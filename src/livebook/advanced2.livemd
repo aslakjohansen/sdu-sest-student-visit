@@ -22,14 +22,10 @@ Denne øvelse tager udgangspunkt i [Fibonacci sekvensen](https://en.wikipedia.or
 $
 fib(n) =
   \begin{cases}
-
-```
 0, & \text{\color{violet} for n=0} \\
 n, & \text{\color{violet} for n=1} \\
 fib(n-1)+fib(n-2), & \text{\color{violet} for n>1} \\
-```
-
-\end{cases}
+  \end{cases}
 $
 
 Denne sekvens viser sig ofte i naturen, og nogle har brugt den i deres [musik](https://www.youtube.com/watch?v=Y7JG63IuaWs).
